@@ -1,0 +1,20 @@
+FeaturedResult:
+    type: object
+    config:
+        description: "Featured Result for search text"
+        fields:
+            thumbnail:
+                type: "String"
+                description: "Picture to be shown for this featured result. e.g. https://www.server.edu/relaventimage.jpg"
+            title:
+                type: "String"
+                description: "Title of this featured result. e.g. \"Let's Read About Hamlet\""
+            teaser:
+                type: "String"
+                description: "Teaser text for this featured result. Should be no more than 2-3 sentences. Not Hemingway short, but not Faulkner long."
+            link:
+                type: "String"
+                description: "The URL where the featured result can be explored in full. e.g. https://www.server.edu/thisFeaturedResult/"
+            trigger:
+                type: "String"
+                description: "The search text that will trigger this featured result."

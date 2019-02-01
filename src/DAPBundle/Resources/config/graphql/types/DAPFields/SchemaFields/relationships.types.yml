@@ -1,0 +1,14 @@
+relationships:
+    type: object
+    config:
+        description: "This is the holder for the various types of relationships we'd like to track.
+                      By clustering them here, we can add to this list without cluttering up the main space in the schema."
+        fields:
+            parents:
+                type: "[parents]"
+            agents:
+                type: "[agents]"
+            works:
+                type: "[works]"
+            locations:
+                type: "[locations]"

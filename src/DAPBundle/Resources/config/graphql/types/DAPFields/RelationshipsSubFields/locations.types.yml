@@ -1,0 +1,23 @@
+locations:
+    type: object
+    config:
+        description: "Places related to the item in question. The DAP Data Model document had suggested the use of an authority URI for locations"
+        fields:
+            locationDescriptor:
+                type: "String"
+                description: 'This is the vernacular name of the particular place or building. "Buckingham Palace" or "201 E Capitol St SE".'
+            addressLocality:
+                type: "String"
+                description: 'This is the vernacular name of the particular locality, usually a town, village, or city. It might read "Verona" or "Greensoro", or, "Washington".'
+            addressRegion:
+                type: "String"
+                description: 'This is the vernacular name of the particular place. It might read "Suffolk", "North Carolina", or "District of Columbia".'
+            addressCountry:
+                type: "String"
+                description: 'This is the vernacular name of the country housing the particular place. It might read "Italy" or "U.S.A"'
+            locationURI:
+                type: "String"
+                description: 'This is used for authority references to locations. It might look like: https://data.cerl.org/thesaurus/cnl00016230'
+            relationship:
+                type: "String"
+                description: 'This describes the relationship to the work in question. It might read "set in" or "authored in" or "starts in" or "Ophelia kills herself here".'

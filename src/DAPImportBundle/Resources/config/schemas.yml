@@ -1,0 +1,8 @@
+parameters:
+    dap_import.schemas:
+        path: '/../src/DAPImportBundle/Resources/schemas/'
+        default: FolgerCW.schema
+        defaultSrcFilePath: "%env(SRC_IMPORT_FILE)%"
+        schemas:
+            default:
+                base: FolgerCW.schema

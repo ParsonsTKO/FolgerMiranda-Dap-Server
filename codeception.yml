@@ -1,0 +1,12 @@
+#namespace: DAP\Codeception
+actor_suffix: Tester     
+settings:
+    colors: true
+paths:
+    log: var/codeception/log
+    output: var/codeception/output     
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+include:
+  - tests/*

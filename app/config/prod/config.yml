@@ -1,0 +1,7 @@
+imports:
+    - { resource: ../common/config.yml }
+
+monolog:
+    handlers:
+        main:
+            action_level: error

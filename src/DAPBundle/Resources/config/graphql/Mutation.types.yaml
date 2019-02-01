@@ -1,0 +1,100 @@
+Mutation:
+  type: object
+  config:
+    description: "Mutations for updating My Shelf items - pass in the dapID of your record, then any data you'd like to modify"
+    fields:
+      ShelfItem:
+        type: ShelfMutationPayload
+        resolve: "@=mutation('shelf_item', [args['dapID'], args['shelfID'], args['shelfTag'], args['notes'], args['sortorder']])"
+        args:
+          dapID:
+            type: "String!"
+            description: "The dapID of the record on the shelf"
+          shelfID:
+            type: "String"
+            description: "The shelf to which to add the item. Defaults to the user's own shelf"
+          shelfTag:
+            type: "String"
+            description: "The id folder on the shelf to which the item should be added"
+          notes:
+            type: "String"
+            description: "Any user-created notes on the item"
+          sortorder:
+            type: "Int"
+            description: "The sort order of the item. Will default to the highest existing number + 1"
+      UnShelfItem:
+        type: ShelfMutationPayload
+        resolve: "@=mutation('unshelf_item', [args['dapID'], args['shelfID']])"
+        args:
+          dapID:
+            type: "String!"
+            description: "The dapID of the record on the shelf"
+          shelfID:
+            type: "String"
+            description: "The shelf from which to remove the item. Defaults to the user's own shelf, others shelves not yet supported"
+      EmptyShelf:
+        description: "Empty either an entire shelf, or a folder in that shelf, without destroying the shelf or the folder"
+        type: ShelfMutationPayload
+        resolve: "@=mutation('empty_shelf', [args['shelfID'], args['shelfTag']])"
+        args:
+          shelfID:
+            type: "String"
+            description: "The shelf to empty. Defaults to the user's own shelf. Emptying others shelves not yet supported"
+          shelfTag:
+            type: "String"
+            description: "If present, the folder to empty instead of the whole shelf"
+      CreateShelfFolder:
+        type: ShelfMutationPayload
+        resolve: "@=mutation('create_folder', [args['tagName'], args['tagNotes'], args['sortOrder'], args['isPublic'], args['ShelfID']])"
+        args:
+          tagName:
+            type: "String!"
+            description: "The human-readable name of your folder."
+          tagNotes:
+            type: "String"
+            description: "Any notes on this folder you'd like to keep"
+          sortOrder:
+            type: "Int"
+            description: "The sort order of the item. Will default to the highest existing number + 1"
+          isPublic:
+            type: "Boolean"
+            description: "Should this be viewable by others?"
+          shelfID:
+            type: "String"
+            description: "The shelf to which to add the item. Defaults to the user's own shelf, others shelves not yet supported"
+      EditShelfFolder:
+        type: ShelfMutationPayload
+        resolve: "@=mutation('edit_folder', [args['shelfTag'], args['tagName'], args['tagNotes'], args['sortOrder'], args['isPublic'], args['ShelfID']])"
+        args:
+          shelfTag:
+            type: "String"
+            description: "The ID of the folder to be edited"
+          tagName:
+            type: "String!"
+            description: "The human-readable name of your folder."
+          tagNotes:
+            type: "String"
+            description: "Any notes on this folder you'd like to keep"
+          sortOrder:
+            type: "Int"
+            description: "The sort order of the item. Will default to the highest existing number + 1"
+          isPublic:
+            type: "Boolean"
+            description: "Should this be viewable by others?"
+          shelfID:
+            type: "String"
+            description: "The shelf to which to add the item. Defaults to the user's own shelf, others shelves not yet supported"
+      UnShelfFolder:
+        type: ShelfMutationPayload
+        resolve: "@=mutation('remove_folder', [args['shelfTag'], args['withPrejudice'], args['shelfID']])"
+        args:
+          shelfTag:
+            type: "String"
+            description: "The ID of the folder to be removed"
+          withPrejudice:
+            type: "Boolean"
+            description: "If true, delete all records in the folder; if false, move them to the root of My Shelf"
+          shelfID:
+            type: "String"
+            description: "The shelf to which to add the item. Defaults to the user's own shelf, others shelves not yet supported"
+

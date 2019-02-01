@@ -1,0 +1,23 @@
+locationCreated:
+    type: object
+    config:
+        description: 'Shows the location of origin of the item. Consists of a tuple containing
+                      addressLocality and addressCountry. For example:
+                      {"addressCountry": "Ireland", "addressLocality": "Dublin"}
+                      From whence the item in question comes. We also have location information in the relationships section,
+                      but having this definitively pulled out for attention helps manage search and display,
+                      as well as nudging data providers to consider this an important field.
+                      We use three subfields derived from schema.org, and one special one.'
+        fields:
+            addressLocality:
+                type: "String"
+                description: 'This is the vernacular name of the particular locality, usually a town, village, or city. It might read "Verona" or "Greensboro", or, "Washington".'
+            addressCountry:
+                type: "String"
+                description: 'This is the vernacular name of the country housing the particular place. It might read "Italy" or "U.S.A"'
+            addressRegion:
+                type: "String"
+                description: 'This is the vernacular name of the particular place. It might read "Suffolk", "North Carolina", or "District of Columbia".'
+            locationDescriptor:
+                type: "String"
+                description: 'This is the vernacular name of the particular place or building. "Buckingham Palace" or "201 E Capitol St SE".'

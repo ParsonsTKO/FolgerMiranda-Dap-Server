@@ -1,0 +1,8 @@
+remoteUniqueID:
+    type: object
+    config:
+        fields:
+            remoteSystem:
+                type: "String"
+            remoteID:
+                type: "String"

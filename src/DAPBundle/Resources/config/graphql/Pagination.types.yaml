@@ -1,0 +1,11 @@
+Pagination:
+  type: object
+  config:
+    description: "DAP Pagination"
+    fields:
+      index:
+        type: Int
+      count:
+        type: Int
+      total:
+        type: Int

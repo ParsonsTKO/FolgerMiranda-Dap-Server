@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        {% block head %}
+        	{% include '@App/Head/metadata.html.twig' %}
+        {% endblock %}
+        {% block head_style %}
+        	{% include '@App/Head/style.html.twig' %}
+        {% endblock %}
+        {% block additional_style %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block analytics %}{% endblock %}
+        {% block svgiconsxml %}
+            {% include '@App/svg_icons.html.twig' %}
+        {% endblock %}
+        {% block header %}
+              {% include '@App/Header/show.html.twig' %}
+        {% endblock %}
+        {% block content %}{% endblock %}
+        {% block footer %}
+        	{% include '@App/Footer/show.html.twig' %}
+        {% endblock %}
+        {% block footer_script %}
+        	{% include '@App/Footer/script.html.twig' %}
+        {% endblock %}
+        {% block additional_script %}{% endblock %}
+    </body>
+</html>

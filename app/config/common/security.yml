@@ -1,0 +1,50 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface:
+            algorithm: bcrypt
+            cost: 12
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        graphql:
+            pattern: ^/graphql
+            anonymous: true
+            stateless: true
+            guard:
+                authenticators:
+                    - app.security.guard.api_key
+
+        user_profile:
+            pattern: ^/profile
+            anonymous: true
+            guard:
+                authenticators:
+                    - app.security.guard.api_key
+
+        main:
+            logout_on_user_change: true
+            pattern: ^/(?!graphql)
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                default_target_path: /dapadmin
+                use_referer: false
+
+            logout:
+                invalidate_session: true
+            anonymous: true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/dapadmin/, role: ROLE_ADMIN }

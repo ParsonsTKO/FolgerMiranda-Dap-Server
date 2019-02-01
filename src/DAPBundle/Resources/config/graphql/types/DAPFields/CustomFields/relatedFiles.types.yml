@@ -1,0 +1,6 @@
+relatedFiles:
+    type: object
+    config:
+        fields:
+            url:
+                type: "String"

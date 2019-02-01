@@ -1,0 +1,34 @@
+default:
+  gherkin:
+    cache: ~
+  formatters:
+    progress: true
+  extensions:
+    Behat\MinkExtension:
+      base_url:  'http://web'
+      sessions:
+        default:
+          goutte: ~
+  autoload:
+      '': "%paths.base%/tests"
+  suites:
+    frontend_visitor:
+      paths:
+        - "%paths.base%/tests/DAP/Features/frontend"
+      filters:
+        role: visitor
+      contexts:
+        - DAP\Features\FeatureContext
+        - Aplyca\BehatContext\FormContext
+        - Aplyca\BehatContext\URLContext
+    backend_admin:
+      paths:
+        - "%paths.base%/tests/DAP/Features/backend"
+      filters:
+        role: admin
+      contexts:
+        - DAP\Features\FeatureContext
+        - Aplyca\BehatContext\FormContext
+        - Aplyca\BehatContext\URLContext
+        - Aplyca\BehatContext\SelectorsContext:
+            selectors: "%paths.base%/tests/DAP/Features/backend/selectors.yml"            

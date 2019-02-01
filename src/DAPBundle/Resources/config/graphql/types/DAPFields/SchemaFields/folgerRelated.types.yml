@@ -1,0 +1,34 @@
+folgerRelated:
+    type: object
+    config:
+        description:
+            "A list of tuples describing a curated set of related items for display on the
+            page. Typically used to show various pages of a book, or recordings of a performance. Each tuple
+            contains:
+            <ul>
+            <li>id: DAP ID of related item, if possible </li>
+            <li>folgeRemoteIdentification:
+            <ul>
+            <li>folgerRemoteUniqueID: key to item in remote system</li>
+            <li>folgerRemoteSystemID: key to the remote system holding the item</li>
+            </ul></li>
+            <li>folgeRelationshipType: key to the relationship between the items (e.g. owner, contained in)</li>
+            <li>folgerObjectType: is this video, audio, a web page for embedding, or something
+            even more exciting?</li>
+            <li>label: short description to display</li>
+            <li>mpso: Multi Page Sort Order, used internally to order items in this set of tuples</li>
+            <li>description: longer description of related item for display in context</li>
+            </ul>"
+        fields:
+            dapID:
+                type: "String"
+            remoteUniqueID:
+                type: remoteUniqueID
+            folgerRelationshipType:
+                type: "String"
+            folgerObjectType:
+                type: "String"
+            label:
+                type: "String"
+            mpso:
+                type: "String"

@@ -1,0 +1,42 @@
+images:
+    type: object
+    config:
+        fields:
+            rootfile:
+                type: String
+            callNumber:
+                type: String
+            pageNumber:
+                type: String
+            multiPageSortOrder:
+                type: String
+            title:
+                type: Title
+            author:
+                type: String
+            imprintOrigin:
+                type: String
+            bibId:
+                type: String
+            holdingsId:
+                type: String
+            lunaObjectId:
+                type: String
+            lunaImageId:
+                type: String
+            lunaURL:
+                type: String
+            size4jpgURL:
+                type: String
+            size5jpgURL:
+                type: String
+            size6jpgURL:
+                type: String
+            size7jpgURL:
+                type: String
+            dateCreated:
+                type: String
+            dateUpdated:
+                type: String
+            mainImage:
+                type: mainImage

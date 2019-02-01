@@ -1,0 +1,30 @@
+{% extends "@App/Default/index.html.twig" %}
+
+{% block header %}
+  {% embed "@App/Header/show.html.twig" %}
+    {% if not app.request.pathinfo starts with path("dap_home") %}
+      {% block menu %}
+      {% endblock %}
+    {% endif %}
+  {% endembed %}
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container">
+    <h1 class="page-header__heading text-center">Page not found</h1>
+  </div>
+</div>
+<div class="page-body">
+  <div class="container">
+      <div id="page-body" class="row">
+        <main class="col-md-12">
+          <h4 class="text-center">
+              The requested page couldn't be located. Checkout for any URL
+              misspelling or <a href="{{ path('app_index') }}">return to the homepage</a>.
+          </h4>
+        </main>
+      </div>
+    </div>
+  </div>
+{% endblock %}

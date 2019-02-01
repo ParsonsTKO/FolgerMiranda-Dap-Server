@@ -1,0 +1,149 @@
+Record:
+  type: object
+  config:
+    description: "DAP Record"
+    fields:
+      dapID:
+        type: "String"
+        description: "The unique ID of the record."
+      recordType:
+        type: "String"
+        description: "The record type allows well-indexed querying to differentiate by some top-level categorization of records. It is also a lookup identifier for record-specific configuration or logic."
+      creator:
+        type: "String"
+        description: 'This is a human-readable description of any creators of the work in question.
+                      For authority-URI-linked creator information, look to the relationships->agents field,
+                      and filter for agents who are tagged as creators.'
+      identifiers:
+        type: "[identifiers]"
+        description: "Contains Identifiers from New Schema"
+      subjects:
+        type: "[subjects]"
+        description: "Contains Subjects from New Schema"
+      title:
+        type: Title
+        description: "Contains New Title Field from New Schema"
+      dateCreated:
+         type: dateCreated
+         description: 'A string containing a human-readable representation of the date. Examples
+                                      include: "1589 October 12" and "MCCCCCIII, die tertio mensis Augusti [3 Aug. 1503]"'
+      extent:
+        type: "String"
+        description: "Extent"
+      folgerDimensions:
+        type: "String"
+      folgerProvenance:
+        type: "String"
+        description: "A textual description of the origin and acquisition of the item."
+      folgerRelatedItems:
+        type: "[folgerRelated]"
+      fileInfo:
+        type: fileInfo
+      relationships:
+        type: relationships
+      format:
+        type: "[String]!"
+        description: 'Currently, one of image, 3d object, printed text, video, sound, manuscript text,
+                       notated music, text.
+                       <br>Future plans have it as a URI that identifies the type of content contained within this record.
+                       This URI will be used to retrieve/identify the validating schema used for importing this content.'
+      genre:
+        type: "[genre]"
+      license:
+        type: "String"
+        description: "Intented to show license covering material (eg CC-BY)"
+      locationCreated:
+        type: locationCreated
+      abstract:
+        type: "String"
+      sortOrder:
+        type: "String"
+      size:
+        type: "String"
+        description: "Human-readable description of the physical item's size. For example:'37 x 28 cm (46 x 35 cm as housed)', '14 cm (8vo)'"
+      #Custom Field for detailed view
+      relatedImages:
+        type: relatedImages
+      hasImages:
+        type: Boolean
+        description: 'Validate if element has images'
+      hasRelatedImages:
+        type: Boolean
+        description: 'Validate if element has images in S3 Bucket: Use this param to show Universal Viewr'
+      hasRelatedImagesEFS:
+        type: Boolean
+        description: 'Validate if element has images in EFS System'
+      availableOnline:
+        type: Boolean
+        description: 'Validate if any kind of digital asset exists'
+      isImage:
+        type: Boolean
+        description: 'Validate if image contains image itself to show Universal Viewr'
+      isRemoteSystem:
+        type: Boolean
+        description: 'Validate if element is from remote system, e.g YouTube, SoundCloud'
+      remoteSystemUrl:
+        type: remoteSystemUrl
+        description: 'Validate and return url from remote system, e.g YouTube, SoundCloud'
+      isBynaryFile:
+        type: Boolean
+        description: 'Validate if element has Downloadable binary files, like mp4, mp3'
+      binaryFileUrl:
+        type: binaryFileUrl
+        description: 'Validate and return url for Downloadable binary files, e.g mp4, mp3'
+      relatedFiles:
+        type: "[relatedFiles]"
+      #Custom Field for detailed view
+      #Deprecated Fields
+      images:
+        type: "[images]"
+        description: 'Old field for luna images. Used for reference only'
+      # If needed add the images.types.yml same fields in here.
+      # internalRelations is deprecated and is not present in New Schema
+      #Deprecated Fields
+      #Schema Update FLGRDAP-312
+      lastUpdate:
+        type: "String"
+        description: "Used to check if an import should be processed. In the case that this datetime is older than the one on record, the record will not be imported."
+      holdingInstitution:
+        type: holdingInstitution
+      permissions:
+        type: permissions
+      isUpdate:
+        type: Boolean
+        description: "We have discussed adding a flag to instruct the import system to overwrite only the provided fields, rather than replacing the whole document."
+      caption:
+        type: "String"
+        description: "The caption is a one or two sentence statement that concisely describes the resource for search results (a little like the fragment in Google searches)."
+      notes:
+        type: "[notes]"
+      folgerDisplayIdentifier:
+        type: "String"
+        description: "(previously folgerCallNumber) text to find the item in the Folger library, if appropriate.
+                     This is kept separately from the identifiers array to make it explicit and easy to work with."
+      mirandaGenre:
+        type: "[String]"
+        description: "(previously folgerGenre)
+                      This powers the genre search as seen on the front page. It uses Folger-specific terms for genres."
+      groupings:
+        type: "[String]"
+        description: "This field, taken at face value, functions as a list of tags that can be used to cluster records together.
+                      All the letters in the Bagot Family Papers could be placed into one group. Future expanded use includes building a
+                      separate index of these groupings and any relationships between them. (Bagot Letters are part of Bagot Family Papers are part of ... , etc)"
+      language:
+        type: "[String]"
+        description: "This powers the language search feature. For each language, use its ISO 639-2 or ISO 639-3 code,
+                      which is a three-letter code. (https://iso639-3.sil.org/code_tables/download_tables)"
+      locus:
+        type: "String"
+        description: "Page number (for an image); range of pages (for an article); URL (for a web resource).
+                      Where the sortOrder field is an integer for machine consumption, this locus field is for human consumption."
+      preferredCitation:
+        type: "String"
+        description: "A field to show the Folger Shakespeare Library's recommended citation format for the work or record in question."
+      simplifiedTranscription:
+        type: "String"
+        description: "A field used to include a simplified version of the transcription in the record itself.
+                      Where a TTML (Timed Text) transcription would have time codes for each line, this simplifiedTranscription would only include the textual content.
+                      To link to transcription files, use folgerRelatedItems."
+

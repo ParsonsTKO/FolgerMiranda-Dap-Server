@@ -1,0 +1,17 @@
+agents:
+    type: object
+    config:
+        description: 'These refer to people or institutions involved with the record in some way.
+                     examples include: "A & B Booksellers", "Adelphi Theatre (Edinburgh, Scotland)", and "Clothiers (LEEDS)".
+                     At this time, unique identifiers are not present in our import data.'
+        fields:
+            agentName:
+                type: "String"
+                description: "String representation of the agent's name for display."
+            agentURI:
+                type: "String"
+                description: "An authority URI ensures the system (and those who use it) are referencing the intended individual.
+                              http://id.loc.gov/authorities/names/n2009073240.html, for example, refers to a particular Warren Master."
+            relationship:
+                type: "String"
+                description: "This describes the relationship, e.g. Creator, recipient, signatory, nemesis, etc."

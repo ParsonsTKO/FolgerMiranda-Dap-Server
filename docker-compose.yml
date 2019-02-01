@@ -1,0 +1,152 @@
+version: "3.6"
+
+services:
+    web:
+        container_name: folgerdap-server-web
+        hostname: web
+        build:
+            context: .
+            dockerfile: etc/docker/web/Dockerfile
+        image: folgerdap/server/web
+        ports:
+            - "${APP_PORT:-8080}:80"
+        working_dir: /app
+        volumes:
+            - ./etc/docker/web/default.conf:/etc/nginx/conf.d/default.conf:cached
+        depends_on:
+            - app
+        restart: always
+        networks:
+            public:
+                aliases:
+                    - server
+            app: ~
+    app:
+        container_name: folgerdap-server-app
+        hostname: app
+        build:
+            context: .
+            dockerfile: etc/docker/app/Dockerfile
+            target: ${TARGET_IMAGE:-dev}
+        image: folgerdap/server/app
+        expose:
+            - 9000
+        working_dir: /app
+        volumes:
+            - ./src:/app/src:cached
+            - ./app:/app/app:cached
+            - ./tests:/app/tests:cached
+            - ./behat.yml:/app/behat.yml:cached
+            - ./codeception.yml:/app/codeception.yml:cached
+            - ./etc/docker/app/development.ini:/usr/local/etc/php/conf.d/zzz-development.ini:cached
+        environment:
+            SYMFONY_DEBUG: ${SYMFONY_DEBUG:-1}
+            SYMFONY_ENV: ${SYMFONY_ENV:-dev}
+            IIIF_URL: ${IIIF_URL:-https://iiif.staging.collections.folger.edu/iiif/2}
+            IIIF_ENDPOINT: ${IIIF_ENDPOINT:-https://iiif.staging.collections.folger.edu/iiif/2}
+            S3_ASSETS_CONTENT: ${S3_ASSETS_CONTENT:-folgerdap-assets-staging}
+            S3_ENDPOINT: ${S3_ENDPOINT:-}
+            SQS_QUEUE_URL: ${SQS_QUEUE_URL:-}
+            ASSETS_CONTENT_ENDPOINT: ${ASSETS_CONTENT_ENDPOINT:-}
+            AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-STORAGENOTACCESSKEY}
+            AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-STORAGENOTSECRETKEY}
+            AWS_PROFILE: ${AWS_PROFILE:-default}
+            AWS_REGION: ${AWS_REGION:-us-east-2}
+            FRONTEND_URL: ${FRONTEND_URL:-https://static.collections.folger.edu/dap-client-frontend}
+            FRONTEND_VERSION: ${FRONTEND_VERSION-1.12.9}
+            IMPORT_SRC_PATH: ${IMPORT_SRC_PATH:-folgerdap-record-files}
+            CLIENT_ENDPOINT: ${CLIENT_ENDPOINT:-http://staging.collections.folger.edu}
+            MAIL_TO_USER: ${MAIL_TO_USER:-admin@collections.folger.edu}
+            MAILER_USER: ${MAILER_USER:-info@collections.folger.edu}
+            MAILER_HOST: ${MAILER_HOST:-mail}
+            MAILER_SMTP_USER: ${MAILER_SMTP_USER:-}
+            MAILER_SMTP_PASSWORD: ${MAILER_SMTP_PASSWORD:-}
+            MAILER_SMTP_PORT: ${MAILER_SMTP_PORT:-1025}
+            APP_SERVER_URL: ${APP_SERVER_URL:-https://server.collections.folger.edu}
+        depends_on:
+            - db
+            - search
+        restart: always
+        networks:
+            - app
+            - db
+            - search
+            - storage
+            - asset
+            - mail
+    db:
+        container_name: folgerdap-server-db
+        hostname: db
+        image: postgres:9.6.10-alpine
+        expose:
+            - 5432
+        volumes:
+            - ./etc/docker/db/init:/docker-entrypoint-initdb.d
+        environment:
+            - POSTGRES_DB=app
+            - POSTGRES_USER=app
+            - POSTGRES_PASSWORD=app
+        networks:
+            - db
+        restart: always
+    search:
+        container_name: folgerdap-server-search
+        hostname: search
+        image: elasticsearch:5.6.9-alpine
+        ports:
+            - "9292:9200"
+            - "9393:9300"
+        environment:
+            - cluster.name=search-cluster
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        #    expose:
+        #      - 9200
+        #      - 9300
+        networks:
+            - search
+        restart: always
+    dbadmin:
+        container_name: folgerdap-server-dbadmin
+        hostname: dbadmin
+        image: adminer
+        ports:
+            - "8081:8080"
+        depends_on:
+            - db
+            - search
+        networks:
+            - db
+            - search
+        restart: always
+
+    mail:
+        container_name: folgerdap-server-mail
+        image: mailhog/mailhog
+        expose:
+            - 1025
+        ports:
+            - "8025:8025"
+        networks:
+            - mail
+        restart: always
+
+networks:
+    public:
+        name: folgerdap-server-public
+    app:
+        name: folgerdap-server-app
+    db:
+        name: folgerdap-server-db
+    search:
+        name: folgerdap-server-search
+    storage:
+        name: folgerdap-iiif-storage
+    asset:
+        name: folgerdap-iiif-public
+    mail:
+        name: folgerdap-server-mail

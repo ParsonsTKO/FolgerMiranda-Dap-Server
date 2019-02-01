@@ -1,0 +1,14 @@
+genre:
+    type: object
+    config:
+        description: 'Contains a list of tuples, each identifying a genre to which this item belongs.
+                       Each tuple contains: <ul>
+                       <li>search: text used for display and search</li>
+                       <li>terms: a priority-sorted list of terms for the genre</li>
+                       <li>uri: a reference to an authority file on the genre</li>
+                       </ul>'
+        fields:
+            name:
+                type: "String"
+            uri:
+                type: "String"

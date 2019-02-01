@@ -1,0 +1,38 @@
+imports:
+    - { resource: "@DAPBundle/Resources/config/services.yml" }
+    - { resource: "@DAPImportBundle/Resources/config/services.yml" }
+
+services:
+    AppBundle\Doctrine\Platforms\PostgreSQL94Platform: ~
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AppBundle\:
+        resource: "../../../src/AppBundle/*"
+        exclude: "../../../src/AppBundle/{Entity,Repository,Tests}"
+
+    AppBundle\Controller\:
+        resource: "../../../src/AppBundle/Controller"
+        public: true
+        tags: ["controller.service_arguments"]
+
+    AppBundle\Event\UserRedirectSubscriber:
+        arguments:
+            $clientCallbackUrl: "%env(CLIENT_ENDPOINT)%/login-check"
+        tags:
+            - "kernel.event_subscriber"
+
+    AppBundle\Form\Type\UserRegistrationFormType:
+        arguments:
+            $class: "%fos_user.model.user.class%"
+        tags:
+            - "form.type"
+
+    AppBundle\Form\Type\UserProfileFormType:
+        arguments:
+            $class: "%fos_user.model.user.class%"
+        tags:
+            - "form.type"

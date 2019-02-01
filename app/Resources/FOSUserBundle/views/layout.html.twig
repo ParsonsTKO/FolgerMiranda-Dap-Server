@@ -1,0 +1,37 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% block header %}
+  {% embed "@App/Header/show.html.twig" %}
+  {% endembed %}
+{% endblock %}
+
+{% block content %}
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-md-6 mx-auto">
+        <div class="u-pt-10 u-pb-10">
+          {% if app.request.hasPreviousSession %}
+              {% for type, messages in app.session.flashBag.all %}
+                  {% for message in messages %}
+                      <div class="{{ type }}">
+                          {{ message|trans({}, 'FOSUserBundle') }}
+                      </div>
+                  {% endfor %}
+              {% endfor %}
+            {% endif %}
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+

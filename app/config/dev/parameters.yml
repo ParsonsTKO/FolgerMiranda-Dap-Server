@@ -1,0 +1,2 @@
+parameters:
+    be_finicky_about_schema: false

@@ -1,0 +1,21 @@
+works:
+    type: object
+    config:
+        description: "Works aren't actual works in the sense of copies or editions of plays, but are the abstract concepts relating to the various copies and editions.
+                      e.g. 'Hamlet' is the abstract work from which various plays, productions, and even Mel Gibson's film is derived."
+        fields:
+            workTitle:
+                type: "String"
+                description: "Human readable reference to title. This will not need to be the perfect official title, but rather one for ease of consumption.
+                              The workURI field is used to make connections."
+            workInstance:
+                type: "String"
+                description: "Human readable reference to instance of the work. e.g. Quarto I. This is required as the workURI is not specific enough.
+                              Thus, workInstance and workURI will function as a pair to provide specific connections."
+            workURI:
+                type: "String"
+                description: 'A link to an authority reference for the particular work. Note that this is not as specific as an instance or edition of a work.
+                              This might look like http://id.loc.gov/authorities/names/no97058371.html, which is the reference for "Série Estudos alagoanos. Historiografia".'
+            relationship:
+                type: "String"
+                description: 'This describes the relationship to the work in question'

@@ -1,0 +1,32 @@
+fileInfo:
+    type: object
+    config:
+        description: "We're targeting one binary asset per record, and keep all the various fields for binary files as subfields here.
+                      Note for future work: There is some question about associating multiple binary files per record in future development."
+        fields:
+            fileURL:
+                type: "String!"
+                description: "The URL from which to import the binary asset (if any) associated with this record.
+                              This is required for file imports to be properly processed."
+            contentSize:
+                type: "String"
+                description: "Used for a human-readable size of binary file."
+            fieldList:
+                type: "[String]"
+                description: "For CSV/database style files, a list of strings to provide the headers and column names."
+            numberOfRows:
+                type: "String"
+                description: "For CSV/database style files"
+            duration:
+                type: "String"
+                description: "Human readable time used for A/V content to show its duration"
+            height:
+                type: "String"
+                description: "Human readable linear distance used for A/V content to show its height, eg 800px"
+            width:
+                type: "String"
+                description: "Human readable linear distance used for A/V content to show its width, eg 640px"
+            encodingFormat:
+                type: "String"
+                description: "Used to show file type and hint at the necessary player. eg RAM, MP4, JPG, WAV, etc.
+                              This field is required for file imports to be properly processed."

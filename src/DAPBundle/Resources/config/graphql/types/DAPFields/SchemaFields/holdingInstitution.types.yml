@@ -1,0 +1,17 @@
+holdingInstitution:
+    type: object
+    config:
+        description: "This field will be used to track the institution that holds the work and contributed it to Miranda."
+        fields:
+            name:
+                type: "String!"
+                description: "The name of the institution, suitable for display. For example, 'Guilford College' or 'Blockbuster Video'."
+            contactPerson:
+                type: "String"
+                description: "The person at the institution to be contacted about the record."
+            exhibitionCode:
+                type: "String"
+                description: "If this record is part of an exhibition at the partner Institution, keep that information here."
+            notes:
+                type: "String"
+                description: "Any notes on the record as it relates to the institution."

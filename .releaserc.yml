@@ -1,0 +1,12 @@
+verifyConditions:
+  - "@semantic-release/changelog"
+  - "@semantic-release/git"
+prepare:
+  - "@semantic-release/changelog"
+  - "@semantic-release/git"
+publish: false
+success: false
+fail: false
+npmPublish: false
+tagFormat: "${version}"
+branch: production

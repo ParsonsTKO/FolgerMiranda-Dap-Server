@@ -1,0 +1,17 @@
+{% if app.request.session.has('_security.redirect') %}
+    {% set confirmationUrl = confirmationUrl ~ '?_redirect=' ~ app.request.session.get('_security.redirect') %}
+{% endif %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block subject %}
+{%- autoescape false -%}
+{{ 'resetting.email.subject'|trans({'%username%': user.username}) }}
+{%- endautoescape -%}
+{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+{{ 'resetting.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}{% endblock %}

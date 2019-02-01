@@ -1,0 +1,7 @@
+namespace: IIIF\Codeception
+paths:
+    log: ../../var/codeception/iiif/log
+    output: ../../var/codeception/iiif/output
+    tests: Codeception  
+    data: Codeception/_data
+    support: Codeception/_support

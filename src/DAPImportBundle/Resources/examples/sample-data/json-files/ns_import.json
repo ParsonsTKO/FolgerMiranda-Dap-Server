@@ -1,0 +1,79 @@
+[{
+  "remoteUniqueID":
+  {
+    "remoteSystem": "http://hamnet.folger.edu/",
+    "remoteID": "http://hamnet.folger.edu/cgi-bin/Pwebrecon.cgi?BBID=5175"
+  },
+  "searchHandling": "include",
+  "title": {
+    "briefTitle": "NewCharleval Title Field : Lorem Ipsum New Title element"
+  },
+  "identifiers":
+  [
+    {
+      "key":"NewCharleval identifiers - Key Field",
+      "value":"NewCharleval identifiers - value Field"
+    }
+  ],
+  "creator": {
+    "name": "Shakespeare III, William, 1564-1616.",
+    "authority": "Shakespeare"
+  },
+  "isBasedOn": "http://hamnet.folger.edu/cgi-bin/Pwebrecon.cgi?BBID=352497",
+  "name": "NewCharleval 22, UPDATE 22: Charles Francois new Record de, 1667-1747.",
+  "datePublished":
+    {"startDate": 1690},
+  "dateCreatedNew":
+    {
+      "displayDate":"1692 August 13",
+      "isoDate":"1692-08-13"
+    },
+  "dateCreatedOld": "1624 August 13",
+  "locationCreated":
+  {
+    "@type": "",
+    "addressLocality": "",
+    "addressCountry": ""
+  },
+  "description": "Mathurin Denys, Rhedonis[ie.Rennes]. 1690, 1690. Hardcover. Condición: Good.",
+  "disambiguatingDescription" : "",
+  "folgerCallNumber" : "236832",
+  "format" : "text",
+  "Agent":
+  [
+    {"name": "Middleton, Thomas, -1627,", "description" : "author", "uri" : "http://id.loc.gov/authorities/names/n79054288"},
+    {"name": "Crane, Ralph,", "description" : "scribe", "uri" : "http://id.loc.gov/authorities/names/nr93002976"},
+    {"name": "Archdall, Mervyn, 1723-1791,", "description" : "former owner", "uri" : "http://id.loc.gov/authorities/names/n85388266"}
+  ],
+  "inLanguage": "eng",
+  "generalNotes": "Lorem Ipsum general notes",
+  "copyNotes": "Lorem ipsum general notes",
+  "extent": "93 p.",
+  "size": "165 x 127 mm",
+  "about":
+  [
+    {
+      "uri":"Lorem Ipsum uri about",
+      "description":"Lorem ipsum description about"
+    }
+  ],
+  "genre" :
+  [
+    {
+      "search": "Manuscripts (documents) --England --17th century.",
+      "terms": ["Manuscripts (documents)", "England", "17th century"],
+      "uri": "http://vocab.getty.edu/aat/300028569"
+    },
+    {
+      "search": "Plays (performed works) --England --17th century --Manuscripts.",
+      "terms": ["Plays (performed works)", "England", "17th century", "Manuscripts"],
+      "uri": "http://vocab.getty.edu/aat/300201028"
+    },
+    {
+      "search": "Poems --England --17th century --Manuscripts.",
+      "terms": ["Poems", "England", "17th century", "Manuscripts"],
+      "uri": "https://rbms.info/vocabularies/genre/tr85.htm"
+    }
+  ]
+}
+]

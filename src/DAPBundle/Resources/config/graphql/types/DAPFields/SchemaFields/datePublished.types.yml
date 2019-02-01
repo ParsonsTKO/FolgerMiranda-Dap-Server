@@ -1,0 +1,10 @@
+datePublished:
+    type: object
+    config:
+        fields:
+            endDate:
+                #type: "Int"
+                type: "String"
+            startDate:
+                #type: "Int"
+                type: "String"

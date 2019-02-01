@@ -1,0 +1,14 @@
+User:
+    type: object
+    config:
+        fields:
+            username:
+                type: 'String!'
+            email:
+                type: 'String!'
+            displayName:
+                type: 'String'
+            apiKey:
+                type: 'String'
+            enabled:
+                type: 'Boolean'

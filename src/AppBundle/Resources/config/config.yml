@@ -1,0 +1,8 @@
+framework:
+    assets:  
+        packages:
+            dap_client_frontend:
+                version: "%env(FRONTEND_VERSION)%"
+                version_format: '%%2$s/dist/%%1$s'
+                base_urls:
+                  - "%env(FRONTEND_URL)%"

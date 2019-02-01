@@ -1,0 +1,31 @@
+MyShelfFolder:
+  type: object
+  config:
+    fields:
+      MyShelfFolderName:
+        type: "String"
+        description: "The hopefully human-friendly name entered for this folder"
+      MyShelfFolderTag:
+        type: "String"
+        description: "The unique ID of the folder"
+      isPublic:
+        type: "Boolean"
+        description: "Is this folder set to be public?"
+      notes:
+        type: "String"
+        description: "Notes entered by user for this folder"
+      sortOrder:
+        type: "Int"
+        description: "Folders can be sorted based on these integers"
+      dateAdded:
+        type: "String"
+        description: "The date/time when this folder was created"
+      lastUpdated:
+        type: "String"
+        description: "The date/time when this folder was last updated"
+      owner:
+        type: "String"
+        description: "The display name of the folder's owner"
+      record:
+        type: "[MyShelfRecord]"
+        description: "The records in this folder"

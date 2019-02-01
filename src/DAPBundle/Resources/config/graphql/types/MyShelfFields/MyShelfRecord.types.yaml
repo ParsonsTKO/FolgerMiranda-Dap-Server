@@ -1,0 +1,31 @@
+MyShelfRecord:
+  type: object
+  config:
+    fields:
+      dapID:
+        type: "String"
+        description: "The unique dapID of the record"
+      owner:
+        type: "String"
+        description: "The display name of the owner of this record"
+      folder:
+        type: "String"
+        description: "The UUIDv4 identifier of the folder to which this record is assigned, if any"
+      notes:
+        type: "String"
+        description: "The owner's notes on this record, if any"
+      sortOrder:
+        type: "Int"
+        description: "Records can be sorted based on these integers"
+      dateAdded:
+        type: "String"
+        description: "The date/time when this record was created"
+      lastUpdated:
+        type: "String"
+        description: "The date/time when this record was last updated"
+      fullRecord:
+        type: "Record"
+        description: "Full information about this record"
+        #resolve: '@=resolver("DAPBundle\\GraphQL\\Resolver\\MyShelfRecordsResolver", [info, value])'
+        resolve: "@=resolver('Record', [args,value,info])"
+        #"@=resolver('character_friends', [value])"

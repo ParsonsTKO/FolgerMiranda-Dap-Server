@@ -1,0 +1,57 @@
+services:
+    em:
+        class: Doctrine\ORM\EntityManager
+        factory: ['@doctrine', 'getManager']
+
+    dap_import.logger: '@monolog.logger.dap_import'
+    dap_asset_details.logger: '@monolog.logger.dap_asset_details'
+    dap_sqs.logger: '@monolog.logger.dap_sqs'
+    dap_assets_sqs.logger: '@monolog.logger.dap_assets_sqs'
+    dap_import_s3.logger: '@monolog.logger.dap_import_s3'
+
+    dap_import.service.import:
+        class: DAPImportBundle\Services\ImportService
+        arguments: ['@em', '@service_container', '@?dap_import.logger']
+        calls:
+            - method: setImportSettings
+              arguments: ['%dap_import.import%']
+   
+    dap_import.service.schemas:
+        class: DAPImportBundle\Services\SchemasService
+        arguments: ['@service_container', '@?dap_import.logger']
+        calls:
+            - method: setSchemasSettings
+              arguments: ['%dap_import.schemas%']
+
+    dap_import.command:
+        class: DAPImportBundle\Command\ImportCommand
+        arguments: ['@service_container', '@?dap_import.logger']
+        tags:
+            -  { name: console.command }
+
+    dap_import.command.getassets:
+        class: DAPImportBundle\Command\getAssetsCommand
+        arguments: ['@service_container', '@?dap_import.logger']
+        tags:
+            -  { name: console.command }
+
+    dap_import.service.sqs:
+        class: DAPImportBundle\Services\SQSService
+        arguments: ['@service_container', '@?dap_assets_sqs.logger']
+        calls:
+            - method: setSQSSettings
+              arguments: ['%dap_import.sqs%']
+
+    dap_import.service.s3:
+        class: DAPImportBundle\Services\S3Service
+        arguments: ['@service_container', '@?dap_import_s3.logger']
+        calls:
+            - method: setS3Settings
+              arguments: ['%dap_import.s3%']
+
+    dap_import.service.asset_details:
+        class: DAPImportBundle\Services\getAssetDetailsService
+        arguments: ['@em', '@service_container', '@?dap_asset_details.logger']
+        calls:
+            - method: setAssetSettings
+              arguments: ['%dap_import.asset_details%']

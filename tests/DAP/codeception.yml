@@ -1,0 +1,7 @@
+namespace: DAP\Codeception
+paths:
+    log: ../../var/codeception/dap/log
+    output: ../../var/codeception/dap/output
+    tests: Codeception  
+    data: Codeception/_data
+    support: Codeception/_support

@@ -1,0 +1,152 @@
+services:
+    em:
+        class: Doctrine\ORM\EntityManager
+        factory: ["@doctrine", "getManager"]
+
+    dap.logger: "@monolog.logger.dap"
+
+    dap.resolver.base:
+        class: DAPBundle\Resolver\AbstractResolver
+        abstract: true
+        calls:
+            - [init, ["@em"]]
+
+    DAPBundle\Resolver\RecordResolver:
+        parent: "dap.resolver.base"
+
+    dap.resolver.record:
+        alias: DAPBundle\Resolver\RecordResolver
+
+    dap.resolver.featuredresult:
+        class: DAPBundle\Resolver\FeaturedResultResolver
+        parent: "dap.resolver.base"
+
+    dap.resolver.myshelf:
+        class: DAPBundle\Resolver\MyShelfResolver
+        parent: "dap.resolver.base"
+        arguments: ["@es.manager", "@service_container"]
+        calls:
+            - [init, ["@em"]]
+
+    dap.resolver.elastic:
+        class: DAPBundle\Resolver\ElasticResolver
+        parent: "dap.resolver.base"
+        arguments: ["@es.manager"]
+        calls:
+            - method: setSettings
+              arguments: ["%dap.search%"]
+
+    DAPBundle\Services\ElasticIndexService:
+        arguments: ["@em", "@service_container", "@?dap.logger"]
+
+    dap.service.elasticindex:
+        alias: DAPBundle\Services\ElasticIndexService
+
+    dap.service.filterRecords:
+        class: DAPBundle\Services\FilterRecordsService
+        arguments: ["@service_container", "@?dap.logger"]
+
+    dap.command:
+        class: DAPBundle\Command\ReindexCommand
+        arguments: ["@service_container", "@?dap.logger"]
+        tags:
+            - { name: console.command }
+
+    dap.command.primemanifest:
+        class: DAPBundle\Command\PrimeManifestCommand
+        arguments: ["@service_container", "@?dap.logger"]
+        tags:
+            - { name: console.command }
+
+    dap.resolver.webonyx:
+        class: DAPBundle\GraphQL\Resolver\RecordResolver
+        arguments:
+            - "@em"
+            - "@service_container"
+        tags:
+            - { name: overblog_graphql.resolver, alias: "Record" }
+
+    dap.resolver.search.webonyx:
+        class: DAPBundle\GraphQL\Resolver\SearchResolver
+        arguments:
+            - "@overblog_graphql.type_resolver"
+            - "@service_container"
+        tags:
+            - { name: overblog_graphql.resolver, alias: "Search" }
+
+    dap.resolver.featuredresult.webonyx:
+        class: DAPBundle\GraphQL\Resolver\FeaturedResultResolver
+        arguments:
+            - "@overblog_graphql.type_resolver"
+            - "@em"
+            - "@service_container"
+        tags:
+            - { name: overblog_graphql.resolver, alias: "FeaturedResult" }
+
+    dap.resolver.myshelf.webonyx:
+        class: DAPBundle\GraphQL\Resolver\MyShelfResolver
+        arguments:
+            - "@overblog_graphql.type_resolver"
+            - "@em"
+            - "@service_container"
+        tags:
+            - { name: overblog_graphql.resolver, alias: "MyShelf" }
+
+    dap.resolver.pagination.webonyx:
+        class: DAPBundle\GraphQL\Resolver\PaginationResolver
+        arguments:
+            - "@service_container"
+        tags:
+            - { name: overblog_graphql.resolver, alias: "Pagination" }
+
+    dap.resolver.facets.webonyx:
+        class: DAPBundle\GraphQL\Resolver\FacetsResolver
+        arguments:
+            - "@service_container"
+        tags:
+            - { name: overblog_graphql.resolver, alias: "Facets" }
+
+    dap.resolver.custom_fields.webonyx:
+        class: DAPBundle\Resolver\CustomFieldsResolver
+        arguments: ["@service_container"]
+
+    dap.resolver.currentuser.webonyx:
+        class: DAPBundle\GraphQL\Resolver\CurrentUserResolver
+        arguments:
+            - "@security.token_storage"
+        tags:
+            - { name: overblog_graphql.resolver, alias: "CurrentUser" }
+
+    dap.resolver.mutations:
+        class: DAPBundle\GraphQL\Mutation\ShelfItemMutation
+        arguments:
+            - "@em"
+            - "@service_container"
+        tags:
+            - {
+                  name: overblog_graphql.resolver,
+                  alias: "shelf_item,unshelf_item,empty_shelf,create_folder,edit_folder,remove_folder",
+              }
+
+    my.graph.resolver.character:
+        class: DAPBundle\GraphQL\Resolver\UtilityResolver
+        arguments:
+            - "@overblog_graphql.type_resolver"
+        tags:
+            - {
+                  name: overblog_graphql.resolver,
+                  alias: "current_time",
+                  method: "getCurrentTime",
+              }
+            - {
+                  name: overblog_graphql.resolver,
+                  alias: "hello",
+                  method: "hello",
+              }
+
+    dap.service.email:
+        class: DAPBundle\Services\EmailService
+        arguments: ["@service_container", "@?dap.logger"]
+        calls:
+            - method: emailSettings
+              arguments: ["%dap.email_settings%"]

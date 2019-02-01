@@ -1,0 +1,23 @@
+iiif_manifest_info:
+    path: /info
+    methods: [GET]
+    defaults:
+        _controller: IIIFBundle:Manifest:info
+
+iiif_manifest_hardcoded:
+    path: /hardcoded.json
+    methods: [GET]
+    defaults:
+        _controller: IIIFBundle:Manifest:hardcoded
+
+iiif_manifest_base_from_record:
+    path: /base-from-record/{dapId}.json
+    methods: [GET]
+    defaults:
+        _controller: IIIFBundle:Manifest:baseFromRecord
+
+iiif_manifest_from_dap_id:
+    path: /from-dap-id/{dapId}.json
+    methods: [GET]
+    defaults:
+        _controller: IIIFBundle:Manifest:fromDapId

@@ -1,0 +1,82 @@
+{% extends "AppBundle::base_layout.html.twig" %}
+
+{% block content %}
+	<div class="container-fluid Main--dap">
+		<div class="row">
+			<div class="col-md-10 container text-left">
+				<div>
+					<h1 class="mt-5 mb-4 display-4">DAP API <small>GraphQL Proof of Concept</small></h1>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+    				<h3 class="mt-4 mb-3">Simple GraphQL Queries</h3>
+    				<div class="list-group">
+            	<a class="list-group-item active" href="{{ path("dap_graphiql", {'query':'{hello(name:"Admin/Developer")}'}) }}">Hello Query</a>
+            	<!--a class="list-group-item" href="{{ path("dap_graphiql", {'query':'{droid(id:"2001"){name,primaryFunction,friends{name}}}'})}}">Another Star Wars Example</a-->
+            	<a class="list-group-item" href="{{ path("dap_graphiql", {'query':'{currentTime}'}) }}">Current time Query</a>
+            	<!--<a class="list-group-item" href="{{ path("dap_graphiql", {'query':'{basicRecord{id,dapID,createdDate,updatedDate,remoteSystem,remoteID,recordType,metadata}}'}) }}">Record Query</a>-->
+        		</div>
+        	</div>
+					<div class="col-md-6">
+						<h3 class="mt-4 mb-3">GraphQL Queries <small> Using Search Field Type</small></h3>
+						<div class="list-group">
+							{#/graphql?query={allRecords{id,dapID,createdDate,updatedDate,remoteSystem,remoteID,recordType}}#}
+							<a class="list-group-item" href="{{ path("dap_graphiql") }}?query=%7Bsearch(searchText%3A%22*%22%2Clanguage%3A%22%22%2Cformat%3A%22%22%2Cgenre%3A%22%22)%7BdapID%2Crelationships%7Bagents%7BagentURI%2CagentName%7D%2Cworks%7BworkURI%2CworkTitle%7D%2Cparents%7BdapID%2CremoteUniqueID%7BremoteID%2CremoteSystem%7D%7D%7D%2Cformat%2Cgenre%7Bname%2Curi%7D%2Clanguage%2C%2Csize%2Ctitle%20%7B%0A%20%20%20%20%20%20displayTitle%0A%20%20%20%20%7D%2C%7D%7D">
+								Search Query (With Searchtext sample and filters)
+							</a>
+							{#/graphql?query={allRecords(id:2){id,dapID,createdDate,updatedDate,remoteSystem,remoteID,recordType}}#}
+							<a class="list-group-item" href="{{ path("dap_graphiql") }}?query=%7Bsearch(searchText%3A%20%22Shakespeare%22)%7BdapID%2Crelationships%7Bagents%7BagentURI%2CagentName%7D%2Cworks%7BworkURI%2CworkTitle%7D%2Cparents%7BdapID%2CremoteUniqueID%7BremoteID%2CremoteSystem%7D%7D%7D%2Ctitle%20%7B%0A%20%20%20%20%20%20displayTitle%0A%20%20%20%20%7D%2Cformat%7D%7D">
+								Search Query (Search by Name only)
+							</a>
+							<a class="list-group-item" href="{{ path("dap_graphiql") }}?query=%7Bsearch%28searchText%3A%20%22*%22%29%7BdapID%2Crelationships%7Bagents%7BagentURI%2CagentName%7D%2Cworks%7BworkURI%2CworkTitle%7D%2Cparents%7BdapID%2CremoteUniqueID%7BremoteID%2CremoteSystem%7D%7D%7D%2Ccreator%2CdateCreated%20%7BisoDate%20displayDate%7D%2Cextent%2CfolgerDisplayIdentifier%2CfolgerProvenance%2CfolgerRelatedItems%7BdapID%2CremoteUniqueID%7BremoteID%2CremoteSystem%7D%2CfolgerRelationshipType%2CfolgerObjectType%2Clabel%2Cmpso%7D%2Cformat%2Cgenre%7Bname%2Curi%7D%2Clanguage%2ClocationCreated%7BaddressLocality%2CaddressCountry%7D%2Ctitle%7BdisplayTitle%7D%2Csize%7D%7D">
+								Search Query With all metadata and empty keyword
+							</a>
+						</div>
+					</div>
+                </div>
+                <div class="row">
+					<div class="col-md-6">
+    				<h3 class="mt-4 mb-3">Complex GraphQL Queries <small>Folger Json</small></h3>
+    				<div class="list-group">
+
+    					{#/graphql?query={records{dapID,recordType,creator{givenName,familyName,authority},dateCreated,extent,folgerDisplayIdentifier,folgerDimensions,folgerProvenance,folgerRelatedItems{id,rootfile,label,mpso,about},format,from,genre{search,uri},language,isBasedOn,license,locationCreated{addressLocality,addressCountry},MPSO,name,position,publisher,size}}#}
+            	<a class="list-group-item" href="{{ path("dap_graphiql", {'query':'{records{dapID,relationships{agents{agentURI,agentName},works{workURI,workTitle},parents{dapID,remoteUniqueID{remoteID,remoteSystem}}},recordType,creator,dateCreated{isoDate,displayDate},extent,folgerDisplayIdentifier,folgerProvenance,folgerRelatedItems{dapID,remoteUniqueID{remoteID,remoteSystem}folgerRelationshipType,folgerObjectType,label,mpso},format,genre{name,uri},language,locationCreated{addressLocality,addressCountry}title{displayTitle},size}}'}) }}">Voyager Records Query (All metadata records)</a>
+            	<a class="list-group-item" href="{{ path("dap_graphiql", {'query':'{records(searchText: "Edwin"){dapID,relationships{agents{agentURI,agentName},works{workURI,workTitle},parents{dapID,remoteUniqueID{remoteID,remoteSystem}}},recordType,creator,dateCreated{isoDate,displayDate},extent,folgerDisplayIdentifier,folgerProvenance,folgerRelatedItems{dapID,remoteUniqueID{remoteID,remoteSystem}folgerRelationshipType,folgerObjectType,label,mpso},format,genre{name,uri},language,locationCreated{addressLocality,addressCountry}title{displayTitle},size}}'}) }}">Voyager Records Query with arguments (Metadata records by Search text)</a>
+            	<a class="list-group-item" href="{{ path("dap_graphiql", {'query':'{records(dapID: "12e87fc9-e5a3-4a43-a482-5e19cf90506a"){dapID,relationships{agents{agentURI,agentName},works{workURI,workTitle},parents{dapID,remoteUniqueID{remoteID,remoteSystem}}},recordType,dateCreated{isoDate,displayDate},extent,folgerDisplayIdentifier,folgerProvenance,folgerRelatedItems{dapID,remoteUniqueID{remoteID,remoteSystem}folgerRelationshipType,folgerObjectType,label,mpso},format,genre{name,uri},language,locationCreated{addressLocality,addressCountry}title{displayTitle},size}}'}) }}">Voyager Records Query with arguments (Metadata record by DapId))</a>
+                        </div>
+        			</div>
+                    <div class="col-md-6">
+                        <h3 class="mt-4 mb-3">Featured Search</h3>
+                        <div class="list-group">
+                            <a class="list-group-item" href=" {{ path("dap_graphiql", {'query':'{featuredResult(searchText: "hamlet") {title thumbnail teaser link}}'})}}">Featured Results request for "hamlet" search term</a>
+
+                        </div>
+
+                    </div>
+</div>
+    		<div class="row">
+					<h3 class="mt-4 mb-3">GraphiQL Client <small id="graphiql-title">Example Query</small></h3>
+				</div>
+    		<div class="mb-4 embed-responsive embed-responsive-4by3 embed-responsive-iframe">
+        	<iframe id="graphQLIframe" class="embed-responsive-item" src="{{ path("dap_graphiql") }}?query=%7Bhello(name%3A%22Developer%22)%7D"></iframe>
+        </div>
+        <br>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block additional_script %}
+	<script>
+    	$(document).ready(function() {
+    		$(".list-group a").on( "click", function(event) {
+        		event.preventDefault()
+        		$(".list-group a").removeClass("active");
+        		$(this).addClass("active");
+        		$("#graphiql-title").text($(this).text());
+        		$("#graphQLIframe").attr('src', $(this).attr("href"));
+    		});
+        });
+   	</script>
+{% endblock %}

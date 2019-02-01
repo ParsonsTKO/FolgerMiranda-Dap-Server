@@ -1,0 +1,26 @@
+imports:
+    - { resource: ../common/config.yml }
+    - { resource: parameters.yml }
+
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/dev/routing.yml"
+        strict_requirements: true
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
+
+monolog:
+    handlers:
+        main:
+            level: info
+            action_level: info
+            channels: ["!event"]
+        console:
+            channels: ["!event", "!doctrine"]
+
+# Swiftmailer Configuration
+swiftmailer:
+    encryption: ~

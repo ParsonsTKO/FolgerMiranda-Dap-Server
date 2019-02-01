@@ -1,0 +1,10 @@
+parents:
+    type: object
+    config:
+        description: "A list of dapID or remoteUniqueIDs used to indicate a parent record. The goal of this field is to enable e.g. pages of a book to inherit metadata from the book's record.
+                      We are allowing multiple parents, which may cause some issues with data inheritance, but which would also allow an image used in multiple sources to be linked to them all."
+        fields:
+            dapID:
+                type: "String"
+            remoteUniqueID:
+                type: remoteUniqueID

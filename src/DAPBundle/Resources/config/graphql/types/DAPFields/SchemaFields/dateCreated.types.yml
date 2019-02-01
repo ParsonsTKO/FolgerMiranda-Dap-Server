@@ -1,0 +1,8 @@
+dateCreated:
+    type: object
+    config:
+        fields:
+            displayDate:
+                type: "String"
+            isoDate:
+                type: "String"

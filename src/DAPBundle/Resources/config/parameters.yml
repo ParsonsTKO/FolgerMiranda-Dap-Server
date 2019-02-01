@@ -1,0 +1,106 @@
+parameters:
+  dap.email_settings:
+    email_from: '%env(MAILER_USER)%'
+    email_to: '%env(MAIL_TO_USER)%'
+    email_body: "Folger DAP System Notification"
+    email_subject: "Folger DAP System Notification"
+  dap_file_service:
+    binary_endpoint: '%env(GRAPHQL_API_ENDPOINT)%/'
+    binary_path: 'var/folger/storage/binary/'
+
+  dap.search:
+      views:
+          result:
+              method: GET
+              endpoint: '%env(GRAPHQL_API_ENDPOINT)%/graphql'
+              record:
+                  GET_option: query
+                  GET_option_param: query
+                  GET_option_value: '{records{dapID,recordType,name,creator{givenName,familyName,authority}}}'
+                  POST_options:
+
+      facets:
+          era: 'date_published.start_date'
+          media_format: 'format'
+          genre: 'miranda_genre'
+          language: 'language'
+
+      languages:
+          ben: 'Bengali'
+          cze: 'Czech'
+          dan: 'Danish'
+          dut: 'Dutch'
+          dum: 'Dutch'
+          eng: 'English'
+          epo: 'Esperanto'
+          fre: 'French'
+          frm: 'French, Middle (ca.1400-1600)'
+          gaa: 'Ga'
+          ger: 'German'
+          grc: 'Greek, Ancient (to 1453)'
+          ice: 'Icelandic'
+          ita: 'Italian'
+          lat: 'Latin'
+          mao: 'Maori'
+          mul: 'Multiple languages'
+          por: 'Portuguese'
+          spa: 'Spanish'
+          swa: 'Swahili'
+          tlh: 'Klingon (artificial language)'
+          und: 'Undetermined'
+          wel: 'Welsh'
+          xho: 'Xhosa'
+          alb: 'Albanian'
+          ara: 'Arabic'
+          arm: 'Armenian'
+          bak: 'Bashkir'
+          bel: 'Belarusian'
+          bul: 'Bulgarian'
+          cat: 'Catalan'
+          chi: 'Chinese'
+          hrv: 'Croatian'
+          enm: 'English, Middle (1100-1500)'
+          ang: 'English, Old (ca. 450-1100)'
+          est: 'Estonian'
+          fin: 'Finnish'
+          fro: 'French, Old (ca. 842-1300)'
+          frr: 'Frisian'
+          gae: 'GÃ£'
+          geo: 'Georgian'
+          gem: 'Germanic'
+          gmh: 'German, Middle High (ca. 1050-1500)'
+          gre: 'Greek, Modern (1453-)'
+          heb: 'Hebrew'
+          hin: 'Hindi'
+          hun: 'Hungarian'
+          ind: 'Indonesian'
+          gle: 'Irish'
+          jpn: 'Japanese'
+          kor: 'Korean'
+          kua: 'Kuanyama'
+          lav: 'Latvian'
+          lit: 'Lithuanian'
+          nor: 'Norwegian'
+          pol: 'Polish'
+          pro: 'ProvenÃ§al (to 1500)'
+          roa: 'Romance'
+          rum: 'Romanian'
+          rus: 'Russian'
+          sco: 'Scots'
+          gla: 'Scottish Gaelic'
+          srp: 'Serbian'
+          sla: 'Slavic'
+          slo: 'Slovak'
+          slv: 'Slovenian'
+          wen: 'Sorbian'
+          swe: 'Swedish'
+          tha: 'Thai'
+          tur: 'Turkish'
+          tuk: 'Turkmen'
+          ukr: 'Ukrainian'
+          yid: 'Yiddish'
+          yor: 'Yoruba'
+          kal: 'Kalaallisut'
+
+      startDate: "1025"
+      endDate: "2018"

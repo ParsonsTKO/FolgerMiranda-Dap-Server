@@ -1,0 +1,19 @@
+ShelfItemInput:
+  type: input-object
+  config:
+    fields:
+      dapID:
+        type: "String!"
+        description: "The dapID of the record to be added to the shelf"
+      shelfID:
+        type: "String"
+        description: "The shelf to which to add the item. Defaults to the user's own shelf"
+      shelfTag:
+        type: "String"
+        description: "The id folder on the shelf to which the item should be added"
+      notes:
+        type: "String"
+        description: "Any user-created notes on the item"
+      sortorder:
+        type: "Int"
+        description: "The sort order of the item. Will default to the highest existing number + 1"

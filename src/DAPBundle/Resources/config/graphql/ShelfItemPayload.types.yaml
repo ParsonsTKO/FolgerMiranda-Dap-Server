@@ -1,0 +1,14 @@
+ShelfMutationPayload:
+  type: object
+  config:
+    fields:
+      success:
+        type: "Boolean"
+        description: "Was the My Shelf operation successful?"
+      operationDetail:
+        type: "String"
+        description: "If the operation has more information to share, it can go here. For example, after creating a new folder, returning its identifier."
+      MyShelf:
+        type: "[MyShelf]"
+        description: "A representation of the records on your shelf"
+        resolve: "@=resolver('MyShelf', [args,info])"

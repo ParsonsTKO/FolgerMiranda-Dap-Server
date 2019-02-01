@@ -1,0 +1,35 @@
+actor: ManifestTester
+env:
+    manifest:
+        test: test
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://web        
+        - REST:
+            depends: PhpBrowser
+            part: Json   
+        - \IIIF\Codeception\Helper\Manifest:
+            url: iiif/manifest/from-dap-id           
+            schemas:
+                manifest:
+                    "@context": 'string'
+                    sequences: 'array'
+                canvas:
+                    "@id": 'string'
+                    "@type": 'string'
+                    height: 'integer:>1'
+                    width: 'integer:>1' 
+                    images: 'array'
+                image:
+                    "@type": 'string'
+                    motivation: 'string'
+                    resource:
+                        "@id": 'string:url'
+                        "@type": "string"
+                        format: "string"
+                        service:
+                            "@context": 'string:url'
+                            "@id": 'string:url'
+                            "profile": 'string:url'               
+

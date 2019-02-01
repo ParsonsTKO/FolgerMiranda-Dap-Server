@@ -1,0 +1,46 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+    {% trans_default_domain 'FOSUserBundle' %}
+
+    <h1 class="u-fontSize-large u-mb-2">Profile</h1>
+    <div class="fos_user_user_show">
+      <div class="metadata">
+        <h6 class="metadata__title">
+          {{ 'profile.show.username'|trans }}
+        </h6>
+        <div class="metadata__desc u-fontSize-xmedium">
+            {{ user.username }}
+        </div>
+      </div>
+      <div class="metadata">
+        <h6 class="metadata__title">
+          {{ 'profile.show.email'|trans }}
+        </h6>
+        <div class="metadata__desc u-fontSize-xmedium">
+          {{ user.email }}
+        </div>
+      </div>
+      <div class="metadata">
+        <h6 class="metadata__title">
+          {{ 'profile.show.displayName'|trans }}
+        </h6>
+        <div class="metadata__desc u-fontSize-xmedium">
+          {{ user.displayName ?: '-' }}
+        </div>
+      </div>
+      <div class="metadata">
+        <h6 class="metadata__title">
+          {{ 'profile.show.apiKey'|trans }}
+        </h6>
+        <div class="metadata__desc u-fontSize-xmedium">
+          {{ user.apiKey ?: '-' }}
+        </div>
+      </div>
+    </div>
+
+    <a href="{{path("fos_user_profile_edit")}}" class="u-mr-2"><strong>Edit</strong></a> |
+    <a href="{{path("fos_user_change_password")}}" class="u-mr-2 u-ml-2"><strong>Change password</strong></a> |
+
+    <a href="{{ client_callback_url ~ '?api-key=' ~ app.user.apiKey ~ '&displayname=' ~ app.user.displayName }}" class="u-mr-2 u-ml-2"><strong>Home</strong></a>
+{% endblock fos_user_content %}

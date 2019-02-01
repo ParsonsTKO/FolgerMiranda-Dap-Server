@@ -1,0 +1,10 @@
+mainImage:
+    type: object
+    config:
+        fields:
+            small:
+                type: String
+            medium:
+                type: String
+            large:
+                type: String

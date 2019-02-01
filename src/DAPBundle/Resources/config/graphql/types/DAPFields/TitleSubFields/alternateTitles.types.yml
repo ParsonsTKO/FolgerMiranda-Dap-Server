@@ -1,0 +1,12 @@
+alternateTitles:
+    type: object
+    config:
+        description: "An array of key-value pairs: the alternate titles, and then labels to describe them.
+                       These include alternate official titles of the work, nicknames, alternate spellings for the title."
+        fields:
+            titleLabel:
+                type: "String"
+                description: "titleLabel"
+            titleText:
+                type: "String"
+                description: "titleText"

@@ -1,0 +1,40 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% form_theme form 'FOSUserBundle::_form_theme.html.twig' %}
+
+<h1 class="u-fontSize-large u-mb-2">Edit your profile</h1>
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+  <div class="form-group">
+    {{ form_label(form.email) }}
+    {{ form_widget(form.email, { 'attr': {'class': 'form-field is-small'}}) }}
+    {{ form_errors(form.email) }}
+  </div>
+  <div class="form-group">
+    {{ form_label(form.username) }}
+    {{ form_widget(form.username, { 'attr': {'class': 'form-field is-small'}}) }}
+    {{ form_errors(form.username) }}
+  </div>
+  <div class="form-group">
+    {{ form_label(form.displayName) }}
+    {{ form_widget(form.displayName, { 'attr': {'class': 'form-field is-small'}}) }}
+    {{ form_errors(form.displayName) }}
+  </div>
+
+  <div class="form-group">
+    {{ form_label(form.current_password) }}
+    {{ form_widget(form.current_password, { 'attr': {'class': 'form-field is-small'}}) }}
+    {{ form_errors(form.current_password) }}
+  </div>
+  <div class="form-group">
+    {{ form_label(form.apiKey) }}
+    {{ form_widget(form.apiKey, { 'attr': {'class': 'form-field is-small'}}) }}
+    {{ form_errors(form.apiKey) }}
+  </div>
+  <div class="form-group u-Vcenter">
+    {{ form_widget(form.resetApiKey, { 'attr': {'class': 'form-checkbox'}}) }}
+    {{ form_label(form.resetApiKey) }}
+  </div>
+  
+  <div class="text-center">
+      <input class="button is-secondary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+  </div>
+{{ form_end(form) }}

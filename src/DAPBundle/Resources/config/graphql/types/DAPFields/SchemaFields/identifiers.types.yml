@@ -1,0 +1,8 @@
+identifiers:
+    type: object
+    config:
+        fields:
+            key:
+                type: "String"
+            value:
+                type: "String"

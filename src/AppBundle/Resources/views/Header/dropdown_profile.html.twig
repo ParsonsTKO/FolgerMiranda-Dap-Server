@@ -1,0 +1,22 @@
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+  <div class="dropdown dropdown-profile">
+    <button class="btn dropdown-toggle dropdown-profile__toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      <svg width='17' height='17' class='u-mr-3 u-mb-1'>
+        <use xlink:href="#icon-user" />
+      </svg>
+      {{app.user.username|capitalize}}
+      <svg width='8' height='8' class='u-ml-2'>
+        <use xlink:href="#arrow-down-1" />
+      </svg>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right dropdown-profile__menu dropdownMenuOffset" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">View my profile</a>
+      <a class="dropdown-item" data-logout href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+    </div>
+  </div>
+{% else %}
+  <div>
+    <a class="u-text-light u-mr-2" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> | <a class="u-text-light u-ml-2" href="{{ path('fos_user_registration_register') }}">Sign Up</a>
+  </div>
+{% endif %}

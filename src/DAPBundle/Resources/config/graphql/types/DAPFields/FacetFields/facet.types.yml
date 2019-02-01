@@ -1,0 +1,11 @@
+facet:
+    type: object
+    config:
+        description: "DAP Facets"
+        fields:
+            facet:
+                type: "String"
+            key:
+                type: "String"
+            count:
+                type: Int

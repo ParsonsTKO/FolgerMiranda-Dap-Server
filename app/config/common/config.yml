@@ -1,0 +1,147 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: "@AppBundle/Resources/config/config.yml" }
+    - { resource: "@DAPBundle/Resources/config/config.yml" }
+    - { resource: "@DAPImportBundle/Resources/config/config.yml" }
+    - { resource: "@AdminBundle/Resources/config/config.yml" }
+    - { resource: "@IIIFBundle/Resources/config/config.yaml" }
+
+framework:
+    #esi:             ~
+    translator: { fallbacks: ["%locale%"] }
+    secret: "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/common/routing.yml"
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ["twig"]
+    default_locale: "%locale%"
+    trusted_hosts: ~
+    session:
+        enabled: true
+    fragments: ~
+    http_method_override: true
+    assets:
+        version: "1.17.14"
+        version_format: "%%2$s/dist/%%1$s"
+        base_urls:
+            - "https://static.collections.folger.edu/easyadmin"
+
+# Twig Configuration
+twig:
+    debug: "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        client_endpoint: "%env(CLIENT_ENDPOINT)%"
+        client_callback_url: "%env(CLIENT_ENDPOINT)%/login-check"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: pdo_pgsql
+        host: "%env(DATABASE_HOST)%"
+        port: "%env(DATABASE_PORT)%"
+        dbname: "%env(DATABASE_NAME)%"
+        user: "%env(DATABASE_USER)%"
+        password: "%env(DATABASE_PASSWORD)%"
+        charset: UTF8
+        platform_service: 'AppBundle\Doctrine\Platforms\PostgreSQL94Platform'
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        dql:
+            string_functions:
+                REMOTE_ID_EQUALS: IIIFBundle\Doctrine\Query\RemoteIdEquals
+                REMOTE_SYSTEM_EQUALS: IIIFBundle\Doctrine\Query\RemoteSystemEquals
+
+# Swiftmailer Configuration
+swiftmailer:
+    host: "%env(MAILER_HOST)%"
+    username: "%env(MAILER_SMTP_USER)%"
+    password: "%env(MAILER_SMTP_PASSWORD)%"
+    port: "%env(MAILER_SMTP_PORT)%"
+    encryption: ssl
+    auth_mode: login
+    spool: { type: memory }
+
+monolog:
+    channels:
+        [
+            "dap",
+            "dap_import",
+            "dap_reindex",
+            "dap_sqs",
+            "dap_assets_sqs",
+            "dap_import_s3",
+            "dap_asset_details",
+        ]
+    handlers:
+        main:
+            type: fingers_crossed
+            handler: nested
+        nested:
+            type: stream
+            path: "php://stderr"
+            level: debug
+        console:
+            type: console
+        dap:
+            type: stream
+            path: "php://stdout"
+            channels: [dap]
+        dap_reindex:
+            type: stream
+            path: "php://stdout"
+            channels: [dap_reindex]
+        dap_import:
+            type: stream
+            #path: %kernel.logs_dir%/dap_import.log
+            path: "php://stdout"
+            channels: [dap_import]
+        dap_sqs:
+            type: stream
+            path: "php://stdout"
+            channels: [dap_sqs]
+        dap_assets_sqs:
+            type: stream
+            path: "php://stdout"
+            channels: [dap_assets_sqs]
+        dap_import_s3:
+            type: stream
+            path: "%kernel.logs_dir%/dap_import_s3.log"
+            channels: [dap_import_s3]
+        dap_asset_details:
+            type: stream
+            path: "%kernel.logs_dir%/dap_asset_details.log"
+            channels: [dap_asset_details]
+
+#ONGR - ELASTICSEARCH
+ongr_elasticsearch:
+    managers:
+        default:
+            index:
+                hosts:
+                    - "%env(ELASTICSEARCH_ENDPOINT)%"
+                index_name: "%env(ELASTICSEARCH_INDEX_NAME)%"
+            mappings:
+                DAPBundle:
+                    document_dir: ElasticDocs
+
+### OVERBLOG GQL ###
+overblog_graphql:
+    definitions:
+        schema:
+            query: Query
+            mutation: Mutation
+        mappings:
+            auto_discover: true
+            types:
+                - types: [yaml]
+                  dir: "%kernel.root_dir%/.../mapping"

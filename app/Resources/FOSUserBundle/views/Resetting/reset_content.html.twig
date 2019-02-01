@@ -1,0 +1,18 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% form_theme form 'FOSUserBundle::_form_theme.html.twig' %}
+<h1 class="u-fontSize-large u-mb-2">Reset password</h1>
+{{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
+<div class="form-group">
+  {{ form_label(form.plainPassword.first) }}
+  {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-field is-small'}}) }}
+  {{ form_errors(form.plainPassword.first) }}
+</div>
+<div class="form-group">
+  {{ form_label(form.plainPassword.second) }}
+  {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-field is-small'}}) }}
+  {{ form_errors(form.plainPassword.second) }}
+</div>
+<div class="text-center u-mb-2">
+  <button type="submit" class="button is-secondary">{{ 'resetting.reset.submit'|trans }}</button>
+</div>
+{{ form_end(form) }}

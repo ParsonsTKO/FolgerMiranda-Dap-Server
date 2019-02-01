@@ -1,0 +1,19 @@
+Facets:
+    type: object
+    config:
+        description: "DAP Facets"
+        fields:
+            facet:
+                type: "String"
+            key:
+                type: "String"
+            count:
+                type: Int
+            media_format:
+                type: facet
+            genre:
+                type: facet
+            era:
+                type: facet
+            language:
+                type: facet

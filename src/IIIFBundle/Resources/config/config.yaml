@@ -1,0 +1,7 @@
+iiif:
+    manifest:
+        attribution: "Folger Shakespeare Library"
+        licence: 'https://creativecommons.org/licenses/by-sa/4.0/'   
+        logo: logo.png
+        uri: "%env(IIIF_URL)%"
+    endpoint: "%env(IIIF_ENDPOINT)%"        

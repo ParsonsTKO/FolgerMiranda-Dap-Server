@@ -1,0 +1,509 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+      "remoteIDsets": {
+        "type" : "object",
+        "properties" : {
+          "remoteSystem" : {
+            "type" : "string"
+          },
+          "remoteID" : {
+            "type" : "string"
+          }
+        },
+        "required" : ["remoteSystem", "remoteID"]
+      }
+    },
+    "id": "contentype/default",
+    "title": "Folger CW",
+    "version" : 1.0,
+    "description": "Base Schema for Miranda",
+    "items": {
+      "id" : "/items",
+        "properties" : {
+        "remoteUniqueID": {
+            "id": "#/properties/remoteUniqueID",
+            "remoteUniqueID": { "$ref": "#/definitions/remoteIDsets" }
+        },
+        "searchHandling" : {
+          "id" : "#/properties/searchHandling",
+          "enum" : ["exclude", null, "include"]
+        },
+        "lastUpdate": {
+          "type": ["null", "string"],
+          "id": "#/properties/lastUpdate"
+        },
+        "holdingInstitution": {
+          "id": "#/properties/holdingInstitution",
+          "type": ["null", "object"],
+          "required" : ["name"],
+          "properties" : {
+            "name" : {
+              "id" : "#/properties/holdingInstitution/name",
+              "type" : "string"
+            },
+            "contactPerson" : {
+              "id" : "#/properties/holdingInstitution/contactPerson",
+              "type" : ["null", "string"]
+            },
+            "exhibitionCode" : {
+              "id" : "#/properties/holdingInstitution/exhibitionCode",
+              "type" : ["null", "string"]
+            },
+            "notes" : {
+              "id" : "#/properties/holdingInstitution/notes",
+              "type" : ["null", "string"]
+            }
+          }
+        },
+        "isUpdate" : {
+          "id" : "#/properties/isUpdate",
+          "type" : "boolean"
+        },
+        "permissions": {
+          "id": "#/properties/permissions",
+          "properties": {
+            "readPermitted": {
+              "id": "#/properties/permissions/properties/readPermitted",
+              "type": "string"
+            },
+            "writePermitted": {
+              "id": "#/properties/permissions/properties/writePermitted",
+              "type": "string"
+            },
+            "startTime": {
+              "id": "#/properties/permissions/properties/startTime",
+              "type": "string"
+            },
+            "endTime": {
+              "id": "#/properties/permissions/properties/endTime",
+              "type": "string"
+            }
+          },
+          "type": ["null", "object"]
+        },
+        "identifiers": {
+          "id" : "#/properties/identifiers",
+          "items": {
+            "id": "#/properties/identifiers/items",
+            "properties": {
+              "key": {
+                "id": "#/properties/identifiers/items/properties/key",
+                "type": "string"
+              },
+              "value": {
+                "id": "#/properties/identifiers/items/properties/value",
+                "type": "string"
+              }
+            },
+            "type": ["null", "object"]
+          },
+          "type" : ["null", "array"]
+        },
+        "title": {
+          "id": "#/properties/title",
+          "properties": {
+            "displayTitle": {
+              "id": "#/properties/title/properties/displayTitle",
+              "type": ["null", "string"]
+            },
+            "extendedTitle": {
+              "id": "#/properties/title/properties/extendedTitle",
+              "type": ["null", "string"]
+            },
+            "alternateTitles": {
+              "id": "#/properties/title/properties/alternateTitles",
+              "items": {
+                "titleLabel": {
+                  "id": "#/properties/title/items/properties/alternateTitles/items/titleLabel",
+                  "type": ["null", "string"]
+                },
+                "titleText": {
+                  "id": "#/properties/title/items/properties/alternateTitles/items/titleText",
+                  "type": ["null", "string"]
+                }
+              },
+              "type": ["null", "array"]
+            },
+            "uniformTitle": {
+              "id": "#/properties/title/items/properties/uniformTitle",
+              "type": ["null", "object"],
+              "items": {
+                "titleString": {
+                  "id": "#/properties/title/items/properties/uniformTitle/items/TitleString",
+                  "type": ["null", "string"]
+                },
+                "titleURI": {
+                  "id": "#/properties/title/items/properties/uniformTitle/items/TitleURI",
+                  "type": ["null", "string"]
+                }
+              }
+            }
+          },
+          "type": ["null", "object"]
+        },
+        "creator": {
+          "id": "#/properties/creator",
+          "type": ["null", "string"]
+        },
+        "dateCreated": {
+          "id": "#/properties/dateCreated",
+          "properties": {
+            "displayDate": {
+              "id": "#/properties/dateCreated/properties/displayDate",
+              "type": ["null", "string"]
+            },
+            "isoDate": {
+              "id": "#/properties/dateCreated/properties/isoDate",
+              "type": ["null", "string"]
+            }
+          },
+          "type": ["null", "object"]
+        },
+        "caption": {
+          "id": "#/properties/caption",
+          "type": "string"
+        },
+        "notes": {
+          "id": "#/properties/notes",
+          "items": {
+            "id": "#/properties/notes/items",
+            "properties": {
+              "label": {
+                "id": "#/properties/notes/items/properties/label",
+                "type": ["null", "string"]
+              },
+              "note": {
+                "id": "#/properties/notes/items/properties/note",
+                "type": ["null", "string"]
+              }
+            },
+            "type": ["null", "object"]
+          },
+          "type": ["null", "array"]
+        },
+        "extent": {
+            "id": "#/properties/extent",
+            "type": ["null", "string"]
+        },
+        "folgerDisplayIdentifier": {
+            "id": "#/properties/folgerDisplayIdentifier",
+            "type": ["null", "string"]
+        },
+        "folgerDimensions": {
+            "id": "#/properties/folgerDimensions",
+            "type": ["null", "string"]
+        },
+        "folgerProvenance": {
+            "id": "#/properties/folgerProvenance",
+            "type": ["null", "string"]
+        },
+        "folgerRelatedItems": {
+            "id": "#/properties/folgerRelatedItems",
+            "items": {
+                "id": "#/properties/folgerRelatedItems/items",
+                "properties": {
+                    "dapID": {
+                        "id": "#/properties/folgerRelatedItems/items/properties/dapID",
+                        "type": ["null", "string"]
+                    },
+                    "remoteUniqueID": {
+                        "id": "/properties/folgerRelatedItems/items/properties/remoteUniqueID",
+                        "remoteUniqueID": { "$ref": "#/definitions/remoteIDsets" }
+                    },
+                    "folgerRelationshipType": {
+                        "id": "#/properties/folgerRelatedItems/items/properties/folgerRelationshipType",
+                        "type": "string"
+                    },
+                    "folgerObjectType" : {
+                        "id": "#/properties/folgerRelatedItems/items/properties/folgerObjectType",
+                        "type": "string"
+                    },
+                    "label": {
+                        "id": "#/properties/folgerRelatedItems/items/properties/label",
+                        "type": "string"
+                    },
+                    "mpso": {
+                        "id": "#/properties/folgerRelatedItems/items/properties/mpso",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "type": ["null", "array"]
+        },
+        "format": {
+            "id": "#/properties/format",
+            "items" : {
+              "id": "#/properties/format/items",
+              "type": "string"
+            },
+            "type": "array"
+        },
+        "mirandaGenre": {
+            "id": "#/properties/mirandaGenre",
+            "type": ["null", "array"],
+            "items" : {
+              "id": "#/properties/mirandaGenre/items",
+              "type": ["null", "string"]
+            }
+        },
+        "genre": {
+            "id": "#/properties/genre",
+            "items": {
+                "id": "#/properties/genre/items",
+                "properties": {
+                    "name": {
+                        "id": "/properties/genre/items/properties/name",
+                        "type": ["null", "string"]
+                    },
+                    "uri": {
+                        "id": "#/properties/genre/items/properties/uri",
+                        "type": ["null", "string"]
+                    }
+                },
+                "type": ["null", "object"]
+            },
+            "type": ["null", "array"]
+        },
+        "groupings": {
+          "id": "#/properties/groupings",
+          "type": ["null", "array"],
+          "items" : {
+            "id": "#/properties/groupings/items",
+            "type": ["null", "string"]
+          }
+        },
+        "language": {
+            "id": "#/properties/language",
+            "type": ["null", "array"],
+            "items": {
+              "id": "#/properties/language/items",
+              "type": "string"
+            }
+        },
+        "license": {
+            "id": "#/properties/license",
+            "type": ["null", "string"]
+        },
+        "locationCreated": {
+            "id": "#/properties/locationCreated",
+            "properties": {
+                "addressLocality": {
+                    "id": "#/properties/locationCreated/properties/addressLocality",
+                    "type": ["null", "string"]
+                },
+                "addressCountry": {
+                    "id": "#/properties/locationCreated/properties/addressCountry",
+                    "type": ["null", "string"]
+                },
+                "addressRegion": {
+                  "id": "#/properties/locationCreated/properties/addressRegion",
+                  "type": ["null", "string"]
+                },
+                "locationDescriptor": {
+                  "id": "#/properties/locationCreated/properties/locationDescriptor",
+                  "type": ["null", "string"]
+                }
+            },
+            "type": "object"
+        },
+        "locus" : {
+          "id": "#/properties/locus",
+          "type": ["null", "string"]
+        },
+        "preferredCitation" : {
+          "id": "#/properties/preferredCitation",
+          "type" : ["null", "string"]
+        },
+        "abstract": {
+            "id": "#/properties/abstract",
+            "type": ["null", "string"]
+        },
+        "sortOrder": {
+            "id": "#/properties/sortOrder",
+            "type": ["null", "integer"]
+        },
+        "size": {
+            "id": "#/properties/Size",
+            "type": ["null", "string"]
+        },
+        "subjects": {
+            "id": "#/properties/subjects",
+            "items": {
+              "id": "#/properties/subjects/items",
+              "properties": {
+                "uri": {
+                  "id": "#/properties/subjects/properties/uri",
+                  "type": ["null", "string"]
+                },
+                "description": {
+                  "id": "#/properties/subjects/properties/description",
+                  "type": ["null", "string"]
+                }
+              },
+              "type": ["null", "object"]
+            },
+            "type": ["null", "array"]
+        },
+        "fileInfo" : {
+          "id" : "#/properties/fileInfo",
+          "required" : ["fileURL"],
+          "properties" : {
+            "fileURL" : {
+              "type" : "string",
+              "id" : "#/properties/fileInfo/properties/fileURL"
+            },
+            "contentSize" : {
+              "id" : "#/properties/fileInfo/properties/contentSize",
+              "type" : ["null", "string"]
+            },
+            "fieldList" : {
+              "id" : "#/properties/fileInfo/properties/fieldList",
+              "items" : {
+                "id" : "#/properties/fileInfo/properties/fieldList/items",
+                "type" : ["null", "string"]
+              },
+              "type": ["null", "array"]
+            },
+            "numberOfRows" : {
+              "id" : "#/properties/fileInfo/properties/numberOfRows",
+              "type" : ["null", "integer"]
+            },
+            "duration" : {
+              "id" : "#/properties/fileInfo/properties/duration",
+              "type" : ["null", "string"]
+            },
+            "height" : {
+              "id" : "#/properties/fileInfo/properties/height",
+              "type" : ["null", "string"]
+            },
+            "width" : {
+              "id" : "#/properties/fileInfo/properties/width",
+              "type" : ["null", "string"]
+            },
+            "encodingFormat" : {
+              "id" : "#/properties/fileInfo/properties/encodingFormat",
+              "type" : ["null", "string"]
+            }
+          },
+          "type" : ["null", "object"]
+        },
+        "simplifiedTranscription" : {
+          "id" : "#/properties/simplifiedTranscription",
+          "type" : ["null", "string"]
+        },
+        "relationships" : {
+          "id": "#/properties/relationships",
+          "properties": {
+            "parents": {
+              "id": "#/properties/relationships/properties/parents",
+              "items": {
+                "id": "#/properties/relationships/properties/parents/items",
+                  "properties": {
+                    "dapID": {
+                      "type": "string",
+                      "id": "#/properties/relationships/properties/parents/items/properties/dapID"
+                    },
+                    "remoteUniqueID" : {
+                      "id" : "/properties/relationships/properties/parents/items/properties/remoteUniqueID",
+                      "remoteUniqueID": { "$ref": "#/definitions/remoteIDsets" }
+                    }
+                  },
+                "type": ["null", "object"]
+              },
+              "type": ["null", "array"]
+            },
+            "agents" : {
+              "id" : "#/properties/relationships/properties/agents",
+              "items" : {
+                "id": "#/properties/relationships/properties/agents/items",
+                "properties": {
+                  "agentName" : {
+                    "id": "#/properties/relationships/properties/agents/items/properties/agentName",
+                    "type": ["null", "string"]
+                  },
+                  "agentURI" : {
+                    "id": "#/properties/relationships/properties/agents/items/properties/agentURI",
+                    "type": ["null", "string"]
+                  },
+                  "relationship" : {
+                    "type": ["null", "string"],
+                    "id" : "#/properties/relationships/properties/agents/items/properties/relationship"
+                  }
+                },
+                "type": ["null", "object"]
+              },
+              "type" : ["null", "array"]
+            },
+            "works": {
+              "id": "#/properties/relationships/properties/works",
+              "items": {
+                "id": "#/properties/relationships/properties/works/items",
+                "properties": {
+                  "workTitle" : {
+                    "type": "string",
+                    "id" : "#/properties/relationships/properties/works/items/properties/workTitle"
+                  },
+                  "workInstance" : {
+                    "type": ["null", "string"],
+                    "id" : "#/properties/relationships/properties/works/items/properties/workInstance"
+                  },
+                  "workURI" : {
+                    "type": ["null", "string"],
+                    "id" : "#/properties/relationships/properties/works/items/properties/workURI"
+                  },
+                  "relationship": {
+                    "type": ["null", "string"],
+                    "id" : "#/properties/relationships/properties/works/items/properties/relationship"
+                  }
+                },
+                "type": ["null", "object"]
+              },
+              "type": ["null", "array"]
+            },
+            "locations" : {
+              "id" : "#/properties/relationships/properties/locations",
+              "items" : {
+                "id": "#/properties/relationships/properties/locations/items",
+                "properties": {
+                  "locationDescriptor": {
+                    "id": "#/properties/relationships/properties/locations/items/properties/locationDescriptor",
+                    "type": ["null", "string"]
+                  },
+                  "addressLocality": {
+                    "id": "#/properties/relationships/properties/locations/items/properties/addressLocality",
+                    "type": ["null", "string"]
+                  },
+                  "addressRegion": {
+                    "id": "#/properties/relationships/properties/locations/items/properties/addressRegion",
+                    "type": ["null", "string"]
+                  },
+                  "addressCountry": {
+                    "id": "#/properties/relationships/properties/locations/items/properties/addressCountry",
+                    "type": ["null", "string"]
+                  },
+                  "locationURI": {
+                    "id": "#/properties/relationships/properties/locations/items/properties/locationURI",
+                    "type": ["null", "string"]
+                  },
+                  "relationship" : {
+                    "id": "#/properties/relationships/properties/locations/items/properties/relationship",
+                    "type" : ["null", "string"]
+                  }
+                },
+                "type": ["null", "object"]
+              },
+              "type" : ["null", "array"]
+            }
+          },
+          "type": ["null", "object"]
+        }
+    },
+    "required": [
+        "remoteUniqueID", "format"
+    ],
+    "type": "object"
+},
+  "type" : "array"
+}

@@ -1,0 +1,55 @@
+<header class="app-header">
+   <div class="app-header__section-a">
+     <div class="container">
+      <div class="app-header__section-a-inner">
+        <a href="https://www.folger.edu/" class="logo-main">
+          <img class="logo-main__img" src="{{ asset('images/logo-folger-shakespeare-library.svg', 'dap_client_frontend') }}" alt="Folger">
+        </a>
+       {% include 'AppBundle:Header:dropdown_profile.html.twig' %}
+      </div>
+     </div>
+   </div>
+   {% block menu %}
+   <div class="app-header__section-b">
+     <div class="container">
+       <div class="nav-bar">
+         <div class="nav-bar__logo">
+           <a href="{{ path("dap_home") }}">
+             <img src="{{ asset('images/logo-miranda-beta.svg', 'dap_client_frontend') }}" alt="Logo Miranda">
+           </a>
+         </div>
+         <nav class="nav-bar__menu">
+          {% if is_granted("ROLE_ADMIN") %}
+            <ul>
+              <li><a href="{{ path("dap_dashboard") }}"><span class="glyphicon glyphicon-dashboard"></span>DAP GraphQL</a></li>
+              <li><a href="{{ path("easyadmin") }}"><span class="glyphicon glyphicon-dashboard"></span>Administration</a></li>
+              <li><a href="{{ path("dap_import_voyager") }}"><span class="glyphicon glyphicon-import"></span>DAP Import</a></li>
+              <li><a href="{{ path("dap_filter_elastic_index") }}"><span class="glyphicon glyphicon-search"></span>Filter Elasticsearch Index</a></li>
+              <li><a href="{{ path("dap_build_seo_index") }}"><span class="glyphicon glyphicon-search"></span>Build XML Sitemap</a></li>
+            </ul>
+            {% else %}
+              <ul>
+                <li>
+                  <a href="{{ client_endpoint }}">{{ "home"|upper }}</a>
+                </li>
+                <li>
+                  <a href="http://www.folger.edu/online-resources/digital-asset-platform">{{ "about"|upper }}</a>
+                </li>
+                <li>
+                  <a href="https://wiki.folger.edu/collections-architecture-portal">{{ "Behind the Scenes"|upper }}</a>
+                </li>
+              </ul>
+            {% endif %} 
+          </nav>
+       </div>
+     </div>
+   </div>          
+   {% if not is_granted("ROLE_ADMIN") %}
+   <div class="app-header__section-c">
+    <div class="container">
+      Explore the Folger's collections
+    </div>
+   </div>
+   {% endif %}
+   {% endblock %}
+ </header>

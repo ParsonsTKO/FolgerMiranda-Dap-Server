@@ -1,0 +1,22 @@
+relatedImages:
+    type: object
+    config:
+        fields:
+            iiifFull:
+                type: "String"
+            iiifInfo:
+                type: "String"
+            iiifThumbnail:
+                type: "String"
+            iiifThumbnail250:
+                type: "String"
+            iiifThumbnail150:
+                type: "String"
+            iiifThumbnail100:
+                type: "String"
+            iiifThumbnail50:
+                type: "String"
+            assetType:
+                type: "String"
+            thumbnails:
+                type: thumbnails

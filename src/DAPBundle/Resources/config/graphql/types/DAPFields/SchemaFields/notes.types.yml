@@ -1,0 +1,10 @@
+notes:
+    type: object
+    config:
+        description: 'A list of paired labels and notes on the item. The imagined use is to enable the logical separation
+                     of notes about various copies of a work as well as special notes about an aspect of the work, e.g. "Caveats about the Transcription".'
+        fields:
+            label:
+                type: "String"
+            note:
+                type: "String"

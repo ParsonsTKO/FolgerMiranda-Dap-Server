@@ -1,0 +1,10 @@
+uniformTitle:
+    type: object
+    config:
+        description: "This is used to track the work authoritatively. It contains a titleString that is the uniform title,
+                      and a titleURI, which is a link to the authority reference for that title."
+        fields:
+            titleString:
+                type: "String"
+            titleURI:
+                type: "String"

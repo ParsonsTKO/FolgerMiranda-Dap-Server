@@ -1,0 +1,38 @@
+{% extends "AppBundle::base_layout.html.twig" %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="row content">
+			<div class="col-md-10 col-md-offset-1 text-left">
+				<div class="page-header">
+					<h1>Manifest <small>Proof of Concept</small></h1>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<ul>
+							<li>
+								<a href="{{ path('iiif_manifest_hardcoded') }}">
+									Hardcoded - {{ path('iiif_manifest_hardcoded') }}
+								</a>
+							</li>
+							<li>
+								<a href="{{ path('iiif_manifest_base_from_record', {'dapId': 'cc505221-ad4b-4000-bcd2-8b0fec35961d' }) }}">
+									Base From Record - {{ path('iiif_manifest_base_from_record', {'dapId': 'cc505221-ad4b-4000-bcd2-8b0fec35961d' }) }}
+								</a>
+							</li>
+							<li>
+								<a href="{{ path('iiif_manifest_from_dap_id', {'dapId': 'cc505221-ad4b-4000-bcd2-8b0fec35961d' }) }}">
+									From Dap Id - {{ path('iiif_manifest_from_dap_id', {'dapId': 'cc505221-ad4b-4000-bcd2-8b0fec35961d' }) }}
+								</a>
+							</li>
+						</ul>
+        			</div>
+                </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block additional_script %}
+
+{% endblock %}

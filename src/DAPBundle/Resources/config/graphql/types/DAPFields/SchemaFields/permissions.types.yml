@@ -1,0 +1,15 @@
+permissions:
+    type: object
+    config:
+        description: "Not part of the record metadata itself, but for administrative purposes.
+                     This set of fields will be used to instruct the system which users or groups can edit a record,
+                     and when it should be available to the public. See our permissions documentation for more details."
+        fields:
+            readPermitted:
+                type: "String"
+            writePermitted:
+                type: "String"
+            startTime:
+                type: "String"
+            endTime:
+                type: "String"

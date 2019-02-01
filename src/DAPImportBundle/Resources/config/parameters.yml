@@ -1,0 +1,196 @@
+parameters:
+    dap_import.sqs:
+        sqs_imported_assets:
+            region: "%env(AWS_REGION)%"
+            url: "%env(SQS_QUEUE_URL)%"
+            version: "2012-11-05"
+    dap_import.s3:
+            region: "%env(AWS_REGION)%"
+            bucket: "%env(S3_BUCKET)%"
+            endpoint: "%env(S3_ENDPOINT)%"
+            assets_content_endpoint: "%env(ASSETS_CONTENT_ENDPOINT)%"
+            success_imported_bucket: "%env(S3_SUCCESS_IMPORTED)%"
+            assets_content_bucket: "%env(S3_ASSETS_CONTENT)%"
+            version: "2006-03-01"
+            import_records_path: "%env(IMPORT_SRC_PATH)%"
+    dap_import.asset_details:
+            iiif_base_url: "%env(IIIF_URL)%"
+            iiif_endpoint: "%env(IIIF_ENDPOINT)%"
+            server_base_url: "%env(ASSETS_CONTENT_ENDPOINT)%"
+            iiif_full_path: 'full/full/0/default.jpg'
+            iiif_50_path: 'full/50,/0/default.jpg'
+            iiif_100_path: 'full/100,/0/default.jpg'
+            iiif_150_path: 'full/150,/0/default.jpg'
+            iiif_250_path: 'full/250,/0/default.jpg'
+            images_path: "%env(IMAGES_PATH)%"
+            valid_image_format:
+                - 'JPG'
+                - 'PNG'
+                - 'JPEG'
+                - 'GIF'
+                - 'SVG'
+                - 'JP2'
+                - 'J2K'
+                - 'TIF'
+                - 'TIFF'
+            valid_files_format:
+                - 'mp4'
+                - 'mp3'
+                - 'm4v'
+                - 'pdf'
+                - 'doc'
+                - 'zip'
+    dap_import.import:
+        #be_finicky_about_schema: false
+        default_src_path: "%env(IMPORT_SRC_PATH)%"
+        schemas:
+            contentTypeField: format
+        remoteSystems:
+            images:
+                - 'luna.folger.edu'
+        valid_image_format:
+            - 'JPG'
+            - 'PNG'
+            - 'JPEG'
+            - 'GIF'
+            - 'SVG'
+            - 'JP2'
+            - 'J2K'
+            - 'TIF'
+            - 'TIFF'
+        valid_asset_format:
+            - 'JPG'
+            - 'PNG'
+            - 'JPEG'
+            - 'GIF'
+            - 'SVG'
+            - 'JP2'
+            - 'J2K'
+            - 'TIF'
+            - 'TIFF'
+            - 'WebP'
+            - 'MP4'
+            - 'MP3'
+            - 'M4V'
+        valid_format_extension:
+              JPEG2000: 'JP2'
+              AUDIO: 'MP3'
+              VIDEO: 'MP4'
+              IMAGE: 'JPG'
+        ignore_format_prefixes:
+            - 'IMAGE/'
+            - 'AUDIO/'
+            - 'VIDEO/'
+            - 'TEXT/'
+        content:
+            types:
+               audio:
+                - 'mp3'
+               video:
+                - 'mp4'
+                - 'm4v'
+               download:
+                - 'pdf'
+                - 'zip'
+                - 'doc'
+                - 'docx'
+                - 'csv'
+            remote_system:
+                - 'YouTube'
+                - 'SoundCloud'
+            remote_system_urls:
+                youtube: 'https://www.youtube.com/watch?v='
+                soundcloud: 'https://soundcloud.com'
+            remote_system_oembed:
+                youtube: 'https://www.youtube.com/oembed?url='
+                soundcloud: 'https://soundcloud.com/oembed?url='
+            remote_system_base:
+                youtube: 'www.youtube.com'
+                soundcloud: 'soundcloud.com'
+            voyager_record:
+                json_type: 'multiple'
+                json_id_field: 'remoteUniqueID'
+                json_id_subField: 'remoteID'
+                json_to_content_type: 'recordType'
+                json_to_content_type_id: '1'
+                json_to_field: 'metadata'
+                json_fields:
+                    - 'fileURL'
+                images:
+                  root: '%env(GRAPHQL_API_ENDPOINT)%/'
+                  path: 'var/folger/storage/binary'
+                  type: 'binary_files'
+            images_sqs_fields:
+                - 'destinationFilename'
+                - 'fileURL'
+                - 'encodingFormat'
+                - 'remoteUniqueID'
+            image_source_fields:
+                destinationFilename:
+                    remoteUniqueID: remoteID
+                fileURL:
+                    fileInfo: fileURL
+                encodingFormat:
+                    fileInfo: encodingFormat
+            json_id_field: 'remoteUniqueID'
+            json_id_subField: 'remoteID'
+            image_formats:
+                - 'JP2'
+                - 'J2K'
+                - 'PNG'
+                - 'JPG'
+                - 'JPEG'
+                - 'JFIF'
+                - 'EXIF'
+                - 'TIFF'
+                - 'GIF'
+                - 'BPG'
+                - 'SVG'
+                - 'BMP'
+                - 'WebP'
+                - 'MP4'
+                - 'MP3'
+                - 'M4V'
+            luna_record:
+                json_type: 'multiple'
+                json_id_field: 'rootfile'
+                json_to_content_type: 'recordType'
+                json_to_content_type_id: '2'
+                json_to_field: 'metadata'
+                json_fields:
+                    - 'size4jpgURL'
+                    - 'size5jpgURL'
+                    - 'size6jpgURL'
+                    - 'size7jpgURL'
+                images:
+                    path: 'var/folger/storage/images'
+                    type: '.jpg'
+                    names:
+                        size4jpgURL: 'size4'
+                        size5jpgURL: 'size5'
+                        size6jpgURL: 'size6'
+                        size7jpgURL: 'size7'
+                    variations_source: 'size4jpgURL'
+                    variations:
+                        small:
+                            witdh: 210
+                            height: 310
+                        medium:
+                            witdh: 420
+                            height: 620
+                        large:
+                            witdh: 650
+                            height: 960
+    dap_import.schema_fields:
+        remoteuniqueid:
+          - remoteuniqueid: remoteUniqueID
+          - remotesystem: remoteSystem
+          - remoteid: remoteID
+        title:
+          - title: title
+          - displayTitle: displayTitle
+          - extendedTitle: extendedTitle
+          - alternatetitles: alternateTitles
+          - uniformtitle: uniformTitle
+        folgerrelateditems:
+          - folgerrelateditems: folgerRelatedItems

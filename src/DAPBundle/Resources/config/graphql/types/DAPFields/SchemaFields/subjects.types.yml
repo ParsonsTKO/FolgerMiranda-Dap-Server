@@ -1,0 +1,8 @@
+subjects:
+    type: object
+    config:
+        fields:
+            uri:
+                type: "String"
+            description:
+                type: "String"

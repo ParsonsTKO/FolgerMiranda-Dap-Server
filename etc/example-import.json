@@ -1,0 +1,1028 @@
+[
+  {
+    "remoteUniqueID": {
+      "remoteSystem": "hamnet.folger.edu",
+      "remoteID": "2"
+    },
+    "searchHandling": "include",
+    "identifiers": [],
+    "title": {
+      "displayTitle": "Antient British portraits ...",
+      "extendedTitle": "Antient British portraits ... / comprehending the choicest works of Vertue Van Gunst, Lombart, Baron ... & engraved by them from the original paintings of Hans Holbein, Isaac Oliver, Sir Anthony More, Vandyke ... with concise biographical notices ..."
+    },
+    "creator": "Boydell, John, 1720-1804",
+    "dateCreated": {
+      "displayDate": "1812",
+      "isoDate": "1812"
+    },
+    "extent": "6 p., 60 plates",
+    "format": ["printed text"],
+    "language": ["English"],
+    "locationCreated": {
+      "addressCountry": "Great Britain",
+      "addressLocality": "London.",
+      "addressRegion": "District of Columbia",
+      "locationDescriptor": "201 E Capitol St SE"
+    },
+    "size": "cm",
+    "subjects": [{
+        "uri": "http://id.loc.gov/authorities/subjects/sh85105193",
+        "description": "Portraits, British"
+      },
+      {
+        "uri": "http://id.loc.gov/authorities/subjects/sh85043995",
+        "description": "Engraving"
+      }
+    ],
+    "relationships": {
+      "agents": [{
+          "agentName": "Boydell, John, 1720-1804",
+          "relationship": "author",
+          "agentURI": "http://id.loc.gov/authorities/names/n79056446"
+        },
+        {
+          "agentName": "Boydell, Josiah, 1752-1817",
+          "relationship": "",
+          "agentURI": "http://id.loc.gov/authorities/names/n79056445"
+        }
+      ],
+      "works": [{
+        "workTitle": "As you like it 1",
+        "relationship": "",
+        "workURI": "http://id.loc.gov/authorities/names/n96056406"
+      },
+        {
+          "workTitle": "As you like it. 2",
+          "relationship": "",
+          "workURI": "http://id.loc.gov/authorities/names/n92059135"
+        }
+      ],
+      "parents": [{
+        "dapID": "f508c891-b0b7-4b05-9378-409ca758604d",
+        "remoteUniqueID": {
+          "remoteSystem": "hamnet.folger.edu",
+          "remoteID": "5"
+        }
+      }]
+    }
+  },
+  {
+    "remoteUniqueID": {
+      "remoteSystem": "hamnet.folger.edu",
+      "remoteID": "4"
+    },
+    "searchHandling": "include",
+    "identifiers": [],
+    "title": {
+      "displayTitle": "Studies from Shakspere and Dickens",
+      "extendedTitle": "Studies from Shakspere and Dickens."
+    },
+    "creator": "Baxter, W. G.",
+    "dateCreated": {
+      "displayDate": "[1884?]",
+      "isoDate": "1884"
+    },
+    "notes": [
+      {
+        "label": "Title from cover.",
+        "note": "Reprinted from Momus"
+      }
+    ],
+    "extent": "p.",
+    "format": ["printed text"],
+    "language": ["English"],
+    "locationCreated": {
+      "addressCountry": "Great Britain",
+      "addressLocality": null
+    },
+    "size": "cm",
+    "subjects": [{
+        "uri": "http://id.loc.gov/authorities/subjects/sh85120954",
+        "description": "Shakespeare, William"
+      },
+      {
+        "uri": "http://id.loc.gov/authorities/names/n78087607",
+        "description": "Dickens, Charles"
+      }
+    ],
+    "relationships": {
+      "agents": [{
+        "agentName": "Baxter, W. G.",
+        "relationship": "author",
+        "agentURI": ""
+      }]
+    }
+  },
+  {
+    "remoteUniqueID": {
+      "remoteSystem": "hamnet.folger.edu",
+      "remoteID": "5"
+    },
+    "searchHandling": "include",
+    "identifiers": [{
+      "key": "Folger call number",
+      "value": "ART Vol. f1"
+    }],
+    "title": {
+      "displayTitle": "Shakspeare's seven ages of man",
+      "extendedTitle": "Shakspeare's seven ages of man / illustrated by Henry Alken.",
+      "alternateTitles": [
+        {
+          "titleLabel": "Shakespeare's seven ages of man",
+          "titleText": "Seven ages of man"
+        }
+      ]
+    },
+    "creator": "Alken, Henry Thomas, 1784-1851",
+    "dateCreated": {
+      "displayDate": "1824",
+      "isoDate": "1824"
+    },
+    "notes": [
+      {
+        "label": "Title from cover.",
+        "note": "Consists of seven colored lithographs, dated \"June 20th, 1824\" and accompanied by a page of text quoting from As you like it."
+      }
+    ],
+    "folgerDisplayIdentifier": "ART Vol. f1",
+    "extent": "[9] leaves",
+    "folgerRelatedItems": [
+      {
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "25662"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "#089",
+        "mpso": 0
+      },
+      {
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "25663"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "#089",
+        "mpso": 0
+      },
+      {
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "25664"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "#089",
+        "mpso": 0
+      },
+      {
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "25665"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "#089",
+        "mpso": 0
+      },
+      {
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "25666"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "#089",
+        "mpso": 0
+      },
+      {
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "25667"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "#089",
+        "mpso": 0
+      }
+    ],
+    "format": ["printed text"],
+    "language": ["English"],
+    "locationCreated": {
+      "addressCountry": "Great Britain",
+      "addressLocality": "London.",
+      "addressRegion": "Suffolk",
+      "locationDescriptor": "201 E Capitol St SE"
+    },
+    "size": "29 x 38 cm",
+    "subjects": [{
+        "uri": "http://id.loc.gov/authorities/names/n96056406",
+        "description": "Shakespeare, William"
+      },
+      {
+        "uri": "http://id.loc.gov/authorities/subjects/sh85120954",
+        "description": "Shakespeare, William"
+      }
+    ],
+    "relationships": {
+      "agents": [{
+          "agentName": "Alken, Henry Thomas, 1784-1851",
+          "relationship": "author",
+          "agentURI": "http://id.loc.gov/authorities/names/nr90024938"
+        },
+        {
+          "agentName": "Shakespeare, William, 1564-1616",
+          "relationship": "",
+          "agentURI": "http://id.loc.gov/authorities/names/n92059135"
+        },
+        {
+          "agentName": "E. & C. McLean (Firm)",
+          "relationship": "",
+          "agentURI": ""
+        }
+      ],
+      "works": [{
+          "workTitle": "As you like it",
+          "relationship": "",
+          "workURI": "http://id.loc.gov/authorities/names/n96056406"
+        },
+        {
+          "workTitle": "As you like it.",
+          "relationship": "",
+          "workURI": "http://id.loc.gov/authorities/names/n92059135"
+        }
+      ]
+    }
+  },
+  {
+    "remoteUniqueID": {
+      "remoteSystem": "hamnet.folger.edu",
+      "remoteID": "233763"
+    },
+    "searchHandling": "include",
+    "creator": "Boydell, John, 1720-1804",
+    "identifiers": [{
+      "key": "Folger call number",
+      "value": "ART Inv. 1178"
+    }],
+    "language": ["English","French"],
+    "title": {
+      "displayTitle": "[Bracelet of Edwin Booth's hair]",
+      "extendedTitle": "[Bracelet of Edwin Booth's hair] [realia].",
+      "alternateTitles": [
+        "Inscribed: Edwin Booth's Hair 1879"
+      ],
+      "alternateTitles": [
+        {
+          "titleLabel": "lorem ipsum titlelabel",
+          "titleText": "Inscribed: Edwin Booth's Hair 1879"
+        }
+      ],
+       "uniformTitle": {
+          "titleString": "lorem ipsum title",
+          "titleURI": "lorem ipsum uri"
+       }
+    },
+       "subjects": [{
+          "uri": "lorem ipsum uri",
+          "description": "lorem ipsum description"
+       }],
+    "genre": [
+      {
+      "name": "Poem",
+      "uri": "www.folger.edu"
+    },
+    {
+      "name": "Poem II",
+      "uri": "www.folger.edu"
+    }
+    ],
+    "dateCreated": {
+      "displayDate": "1879",
+      "isoDate": "1879"
+    },
+    "notes": [
+      {
+        "label": "Title from cover.",
+        "note": "Braided hair bracelet with gold-colored clasp inscribed \"Mother\" in gothic script on front and \"Edwin Booth's Hair 1879\" in italic script on back."
+      }
+    ],
+    "folgerDisplayIdentifier": "ART Inv. 1178",
+    "extent": "1 bracelet",
+    "folgerRelatedItems": [
+      {
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "46549"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "",
+        "mpso": 0
+      }
+    ],
+    "format": ["3d object"],
+    "size": "29 cm"
+  },
+  {
+      "searchHandling": "exclude",
+      "remoteUniqueID": {
+        "remoteSystem": "luna.folger.edu",
+        "remoteID": "46548"
+      },
+      "identifiers": [{
+        "value": "ART Inv. 1178 (realia)",
+        "key": "Folger call number"
+      }],
+      "title": {
+        "displayTitle": "Mother recto"
+      },
+      "fileInfo": {
+        "encodingFormat": "image/JP2",
+        "fileURL": "https://luna.folger.edu/MediaManager/srvr?mediafile=/JP2K/FOLGERCM1-6-NA/1198/046548.jp2&level=1&width=5754&height=5656"
+      },
+      "format": [
+        "image"
+      ],
+      "license": "CC BY-SA 4.0",
+      "relationships": {
+        "parents": [{
+          "dapID": "",
+          "remoteUniqueId": {
+            "remoteSystem": "hamnet.folger.edu",
+            "remoteID": "233763"
+          }
+        }]
+      }
+    },
+    {
+      "searchHandling": "exclude",
+      "remoteUniqueID": {
+        "remoteSystem": "luna.folger.edu",
+        "remoteID": "46549"
+      },
+      "identifiers": [{
+        "value": "ART Inv. 1178 (realia)",
+        "key": "Folger call number"
+      }],
+      "title": {
+        "displayTitle": "verso \"Edwin Booth's Hair\""
+      },
+      "fileInfo": {
+        "encodingFormat": "image/JP2",
+        "fileURL": "https://luna.folger.edu/MediaManager/srvr?mediafile=/JP2K/FOLGERCM1-6-NA/1198/046549.jp2&level=1&width=5804&height=5570"
+      },
+      "format": [
+        "image"
+      ],
+      "license": "CC BY-SA 4.0",
+      "relationships": {
+        "parents": [{
+          "dapID": "",
+          "remoteUniqueId": {
+            "remoteSystem": "hamnet.folger.edu",
+            "remoteID": "233763"
+          }
+        }]
+      }
+    },
+  {
+    "remoteUniqueID": {
+      "remoteSystem": "DiegTEST: http:\/\/hamnet.folger.edu\/",
+      "remoteID": "DiegTEST: http:\/\/hamnet.folger.edu\/cgi-bin\/Pwebrecon.cgi?BBID=73176#74895"
+    },
+    "format": [
+      "text"
+    ],
+    "searchHandling": "include",
+    "title": {
+      "displayTitle": "DiegTEST: Sus\u0301i\u0304la\u0304-Bi\u0304rsim\u0323ha : na\u0304t\u0323ak : Sekspiyar kr\u0325ta na\u0304t\u0323ak bis\u0301esh abalamvana kariya\u0304 biracita.",
+      "alternateTitles": [
+        {
+          "titleText": "Cymbeline. Bengali, Sushila-Birsingha, Sushila Bir Singha, Sushila O Birsingha, Sushila-Virshingha"
+        }
+      ]
+    },
+    "creator": "T\u0323ha\u0304kura, Satyendrana\u0304tha",
+    "dateCreated": {
+      "displayDate": "samvat. 1924 [i.e. 1867 or 1868]",
+      "isoDate": ""
+    },
+    "fileInfo": {
+      "encodingFormat": "image/JP2",
+      "fileURL": "https://luna.folger.edu/MediaManager/srvr?mediafile=/JP2K/FOLGERCM1~6~6/467/000006.jp2&width=7320&height=4062"
+    },
+    "notes": [
+      {
+        "note": "Author widely known in English as Satyendranath Tagore. Adaptation of Shakespeare's Cymbeline, in Bengali. See Ahsan, N. Shakespeare translations in nineteenth-century Bengali theatre, p. 33. Signatures: pi\u00b2 [1]\u2074 2-22\u2074 23\u2076. Also available as a digital reproduction."
+      }
+    ],
+    "abstract": "In quarter calf with marbled paper boards; gilt title and tooling on spine; marbled endpapers; publisher\u2019s printed wrapper. Stamp: Edward Dowden Library. Manuscript bibliographical note tipped in.",
+    "folgerDisplayIdentifier": "PR2796.B3 C3 1867-1868 Sh.Col.",
+    "extent": "[4], 182, [6] p.",
+    "language": [
+       "English"
+    ],
+    "size": "20 cm",
+    "genre": [{
+      "name": "lorem ipsum genre",
+      "uri": "http://id.loc.gov/search/?q=cs:http://id.loc.gov/authorities/genreForms"
+    }],
+    "locationCreated": {
+      "addressLocality": "montreal",
+      "addressCountry": "montreal"
+    },
+    "relationships": {
+      "agents": [
+      ]
+    },
+    "folgerRelatedItems": [
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133920"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "front outside cover - front 1",
+        "mpso": 1
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133921"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "front inside cover || front endleaf 1 recto || front cover 2",
+        "mpso": 2
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133922"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "front endleaf 1 verso || front endleaf 3",
+        "mpso": 3
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133923"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "front endleaf 2 recto",
+        "mpso": 4
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133924"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "front endleaf 2 verso",
+        "mpso": 5
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133925"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "front endleaf 3 recto",
+        "mpso": 6
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133926"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "front endleaf 3 verso || [page 1]",
+        "mpso": 7
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133927"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "[page 2] || [page 3]",
+        "mpso": 8
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133928"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "[page 4] || page 1",
+        "mpso": 9
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133929"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 2 || page 3",
+        "mpso": 10
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133930"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 4 || page 5",
+        "mpso": 11
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133931"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 6 || page 7",
+        "mpso": 12
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133932"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 8 || page 9",
+        "mpso": 13
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133933"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 10 || page 11",
+        "mpso": 14
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133934"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 12 || page 13",
+        "mpso": 15
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133935"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 14 || page 15",
+        "mpso": 16
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133936"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 16 || page 17",
+        "mpso": 17
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133937"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 18 || page 19",
+        "mpso": 18
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133938"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 20 || page 21",
+        "mpso": 19
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133939"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 22 || page 23",
+        "mpso": 20
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133940"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 24 || page 25",
+        "mpso": 21
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133941"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 26 || page 27",
+        "mpso": 22
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133942"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 28 || page 29",
+        "mpso": 23
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133943"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 30 || page 31",
+        "mpso": 24
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133944"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 32 || page 33",
+        "mpso": 25
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133945"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 34 || page 35",
+        "mpso": 26
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133946"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 36 || page 37",
+        "mpso": 27
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133947"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 38 || page 39",
+        "mpso": 28
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133948"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 40 || page 41",
+        "mpso": 29
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133949"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 42 || page 43",
+        "mpso": 30
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133950"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 44 || page 45",
+        "mpso": 31
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133951"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 46 || page 47",
+        "mpso": 32
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133952"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 48 || page 49",
+        "mpso": 33
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133953"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 50 || page 51",
+        "mpso": 34
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133954"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 52 || page 53",
+        "mpso": 35
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133955"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 54 || page 55",
+        "mpso": 36
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133956"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 56 || page 57",
+        "mpso": 37
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133957"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 58 || page 59",
+        "mpso": 38
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133958"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 60 || page 61",
+        "mpso": 39
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133959"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 62 || page 63",
+        "mpso": 40
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133960"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 64 || page 65",
+        "mpso": 41
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133961"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 66 || page 67",
+        "mpso": 42
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133962"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 68 || page 69",
+        "mpso": 43
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133963"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 70 || page 71",
+        "mpso": 44
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133964"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 72 || page 73",
+        "mpso": 45
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133965"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 74 || page 75",
+        "mpso": 46
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133966"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 76 || page 77",
+        "mpso": 47
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133967"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 78 || page 79",
+        "mpso": 48
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133968"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 80 || page 81",
+        "mpso": 49
+      },
+      {
+        "dapID": null,
+        "remoteUniqueID": {
+          "remoteSystem": "luna.folger.edu",
+          "remoteID": "133969"
+        },
+        "folgerRelationshipType": "included image",
+        "folgerObjectType": "image",
+        "label": "page 82 || page 83",
+        "mpso": 50
+      }
+    ]
+  },
+  {
+  	"title": {
+  		"displayTitle" : "New Schema Shakespeare LOL"
+  	},
+  	"searchHandling": "include",
+  	"format": ["Nonmusical"],
+  	"creator": "Sheir, Rebecca",
+  	"fileInfo" : {
+  		"fileURL": "http://api.collections.folger.edu/var/folger/storage/binary/podcasts/Shakespeare%20LOL_%20All%20Mirth%20and%20No%20Matter.mp3",
+  		"duration": "27:40",
+  		"encodingFormat" : "mp3"
+  	},
+  	"language": ["eng", "English"],
+  	"dateCreated": {
+  		"isoDate" : "2014-07-30",
+  		"displayDate" : "July 30, 2015"
+  	},
+    "notes": [
+      {
+        "note": "Let's face it: Modern audiences sometimes go from roaring with laughter to scratching their heads when it comes to enjoying Shakespeare's jokes four hundred years later. How (and why) has \"what's funny\" changed over the years'and what's still a guaranteed belly laugh? Theater artists and scholars, along with narrator Rebecca Sheir, host of our Shakespeare Unlimited series, take an amusing, sometimes surprising, look at things that were funny in Shakespeare's time, but not so much now'as well as gems of Shakespearean comedy that still sparkle today. Among those featured in this podcast episode: Michael Green is the author of The Art of Coarse Acting. Robert Hornback is associate professor of English, comparative literatures, and theatre and chair of the Department of English and Comparative Literatures at Oglethorpe University. Austin Tichenor is a writer, performer, and managing partner of the Reduced Shakespeare Company. He also produces and hosts the Reduced Shakespeare Company Podcast. Adam Zucker is an associate professor of English at the University of Massachusetts Amherst and author of The Places of Wit in Early Modern English Comedy.From the Shakespeare Unlimited podcast series. ' July 30, 2014. Folger Shakespeare Library. All rights reserved. Written and produced for the Folger Shakespeare Library by Richard Paul, an author and documentary producer who is also a long-time member of Washington's own Capitol Steps singing comedy troupe. Garland Scott is associate producer. Edited by Gail Kern Paster and Esther Ferington. We had help gathering material for this podcast from Esther French. We also had help from Candice Ludlow, Jane Degenhardt, Ian Briggs, and Andrea Bath. Original music composed and arranged by Lenny Williams."
+      }
+    ],
+    "mirandaGenre": ["Interview"],
+  	"remoteUniqueID": {
+  		"remoteSystem" : "test data only",
+  		"remoteID" : "shakespeare-lol-self"
+  	},
+  	"locationCreated": {
+  		"addressCountry": "United States",
+  		"addressLocality": "Washington, D.C.",
+      "addressRegion": "District of Columbia",
+      "locationDescriptor": "201 E Capitol St SE"
+  	}
+  }
+]

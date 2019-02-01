@@ -1,0 +1,38 @@
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    secret: ThisTokenIsNotSoSecretChangeIt
+    locale: en
+    env(MAILER_USER): info@collections.folger.edu
+    env(MAIL_TO_USER): admin@collections.folger.edu
+    env(MAILER_HOST): email-smtp.us-east-1.amazonaws.com
+    env(MAILER_SMTP_USER): ~
+    env(MAILER_SMTP_PASSWORD): ~
+    env(MAILER_SMTP_PORT): 465
+    env(MAILER_SMTP_URL): ~
+    env(SES_AWS_REGION): "us-east-1"
+    env(DATABASE_HOST): db
+    env(DATABASE_NAME): app
+    env(DATABASE_USER): app
+    env(DATABASE_PASSWORD): app
+    env(DATABASE_PORT): ~
+    env(GRAPHQL_API_ENDPOINT): ~
+    env(ELASTICSEARCH_ENDPOINT): "search:9200"
+    env(ELASTICSEARCH_INDEX_NAME): "folgerdap"
+    env(AWS_REGION): "us-east-2"
+    env(SQS_QUEUE_URL): ~
+    env(SRC_IMPORT_FILE): "/tmp/record_files/import.json"
+    env(IMPORT_SRC_PATH): "/tmp/record_files"
+    env(S3_BUCKET): "folgerdap-record-files"
+    env(S3_SUCCESS_IMPORTED): "folgerdap-imported-files"
+    env(S3_ASSETS_CONTENT): "folgerdap-assets-prod"
+    env(S3_ENDPOINT): ~
+    env(ASSETS_CONTENT_ENDPOINT): ~
+    env(IIIF_URL): "https://iiif.collections.folger.edu/iiif/2"
+    env(IIIF_ENDPOINT): "https://iiif.collections.folger.edu/iiif/2"
+    env(IMAGES_PATH): "/mnt/images"
+    env(FRONTEND_URL): https://static.collections.folger.edu/dap-client-frontend
+    env(FRONTEND_VERSION): 1.12.9
+    env(CLIENT_ENDPOINT): http://collections.folger.edu
+    app_server_url: "%env(APP_SERVER_URL)%"
+    be_finicky_about_schema: true

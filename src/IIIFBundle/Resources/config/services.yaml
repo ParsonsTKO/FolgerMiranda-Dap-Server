@@ -1,0 +1,5 @@
+services:
+    iiif.builder.uri:
+        class: IIIFBundle\Uri\UriBuilder
+        arguments:
+            - '%iiif.manifest.uri%'

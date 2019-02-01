@@ -1,0 +1,14 @@
+MyShelf:
+    type: object
+    config:
+        description: "A representation of the records on your shelf"
+        fields:
+            ownerName:
+              type: "String"
+              description: "The display name of the shelf's owner"
+            MyShelfRecords:
+                type: "[MyShelfRecord]"
+                description: "The records stored on your shelf"
+            MyShelfFolders:
+                type: "[MyShelfFolder]"
+                description: "The folders for organizing your shelf"

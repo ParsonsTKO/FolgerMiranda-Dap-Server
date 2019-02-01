@@ -1,0 +1,12 @@
+thumbnails:
+    type: object
+    config:
+        fields:
+            thumb_250:
+                type: "String"
+            thumb_150:
+                type: "String"
+            thumb_100:
+                type: "String"
+            thumb_50:
+                type: "String"

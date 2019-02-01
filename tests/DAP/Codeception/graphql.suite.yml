@@ -1,0 +1,118 @@
+actor: GraphQLTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://web           
+        - REST:
+            depends: PhpBrowser
+            part: Json   
+        - \DAP\Codeception\Helper\GraphQL:
+            url: /graphql
+            record_type:
+                dapID: 'string:regex(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i)'
+                recordType: 'null'
+                format: 'array'
+                genre: 'array|null'
+                language: 'array|null'
+                mirandaGenre: 'array|null'
+                folgerDisplayIdentifier: 'string|null'
+                extent: 'string|null'
+                title:
+                    displayTitle: 'string|null'
+                size: 'string|null'
+            featuredResult_type:
+                title: 'string'
+                teaser: 'string'
+                link: 'string'
+                thumbnail: 'string|null'
+                trigger: 'string'
+            MyShelf_type_one:
+                ownerName: 'string'
+                MyShelfRecords: 'array'
+                MyShelfFolders: 'array'
+            MyShelf_type_records:
+              notes: 'string|null'
+              dapID: 'string'
+              fullRecord: 'array'
+            MyShelf_type_folders:
+              MyShelfFolderName: 'string'
+              MyShelfFolderTag: 'string'
+              notes: 'string|null'
+              isPublic: 'boolean'
+              record: 'array'
+            MyShelf_type_folder_record:
+              dapID: 'string'
+              creator: 'string|null'
+              fullRecord: 'array'
+            MyShelf_type_record_full_record:
+              title:
+                displayTitle: 'string'
+              dapID: 'string'
+              creator: 'string'
+
+            graphql_record_query: |
+                dapID
+                recordType
+                creator
+                dateCreated {
+                    isoDate
+                    displayDate
+                }
+                extent
+                folgerDisplayIdentifier
+                folgerProvenance
+                folgerRelatedItems {
+                    dapID
+                    remoteUniqueID {
+                        remoteID
+                        remoteSystem
+                    }
+                    folgerRelationshipType
+                    folgerObjectType
+                    label
+                    mpso
+                }
+                format
+                mirandaGenre
+                folgerDisplayIdentifier
+                notes {
+                    label
+                    note
+                }
+                lastUpdate
+                isUpdate
+                genre {
+                    name
+                    uri
+                }
+                language
+                locationCreated {
+                    addressLocality
+                    addressCountry
+                    addressRegion
+                    locationDescriptor
+                }
+                title {
+                    displayTitle
+                    extendedTitle
+                    alternateTitles {
+                        titleLabel
+                        titleText
+                    }
+                }
+                relationships {
+                    agents {
+                        agentURI
+                        agentName
+                        relationship
+                    }
+                }
+                size
+            graphql_featuredresult_query: |
+                title
+                teaser
+                thumbnail
+                link
+                trigger
+
+                        

@@ -1,0 +1,184 @@
+{% extends "AppBundle::base_layout.html.twig" %}
+
+{% block content %}
+
+    <div class="container-fluid Main--import">
+        <div class="row">
+            <div class="col-md-10 container text-left">
+                <div>
+                    <h1 class="mt-5 mb-4 display-4">DAP Reindex From Voyager<small></small></h1>
+                </div>
+                <p>This Dashboard enables to build the index, filtering by search results, by DapID, or performing a complete Reindex</p>
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne">
+                            <h5 class="mb-0">
+                                <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">
+                                    View Available Schemas
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="card-block">
+                                {% if schemas is defined and schemas|length > 0 %}
+                                    <ul>
+                                        {% for identifier, schema in schemas %}
+                                            <li>{{ identifier }}</li>
+                                            {% if schema is defined and schema|length > 0 %}
+                                                <ul>
+                                                    {% for identifierChild, schemaChild in schema %}
+                                                        <Li>{{ identifierChild }}: {{ schemaChild }}</Li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                            {% if resultIndex is defined and resultIndex|length > 0 %}
+                                <div class="alert alert-success" role="alert">
+                                    <h4>Content Indexed Successfully!</h4>
+                                    {% if resultIndex is iterable %}
+                                        {% for indexedContent in resultIndex %}
+                                            <a href="/dapimport/binary_downloader" class="alert-link">Your content has been Reindexed Successfully</a>
+                                            {{ indexedContent|raw }}
+                                        {% endfor %}
+                                    {% else %}
+                                        <a href="/dapimport/binary_downloader" class="alert-link">Your content has been Reindexed Successfully</a>
+                                        {{ resultIndex|raw }}
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="alert alert-info" role="alert">
+                                    <p><strong>Reindex Failed: No Records matched your filter for Reindexing or Background process failed.<br><br></strong></p>
+                                </div>
+                            {% endif %}
+                        {% if result.name_filter is defined and result.name_filter|length > 0%}
+                            <div class="alert alert-success" role="alert">
+                                <h4>Name Filter Results </h4>
+                                <p><strong>We found {{ result.name_filter|length }} Records Matching your Filter by Name<br><br></strong></p>
+                                <ol>
+                                    {% for items in result.name_filter %}
+                                        <li><b>dapID:</b> {{ items.dapID }} - <b>Name:</b> {{ items.title.displayTitle }} </li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        {% endif %}
+                        {% if result.dapid_filter is defined and result.dapid_filter|length > 0%}
+                            <div class="alert alert-success" role="alert">
+                                <h4>DapID Filter Results </h4>
+                                <p><strong>We found {{ result.dapid_filter|length }} Records Matching your Filter by DapID<br><br></strong></p>
+                                <ol>
+                                    <li><b>dapID:</b> {{ result.dapid_filter.dapID }} - <b>Title:</b> {{ result.dapid_filter.metadata.title.displayTitle }} - <b>RemoteSystem</b> <a href="" target="_blank">{{ result.dapid_filter.metadata.remoteUniqueID.remoteSystem }}</a> <b>remoteID: </b>{{ result.dapid_filter.metadata.remoteUniqueID.remoteID }}</li>
+                                </ol>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                        <div class="form-group">
+                            <h4>Reindex Filter <small>Ingress a criteria parameter to Reindex</small></h4>
+                            <p>Filter by record Name</p>
+                            <div class="input-group mb-3">
+                                <input type="text" id="search_text" class="custom-text-input form-control">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="selectedSearchText">Ingress text</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_errors(form.search_text) }}
+                                {{ form_widget(form.search_text) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-left">
+                        <div class="form-group">
+                            <h4>Reindex Filter <small>Ingress a criteria parameter to Reindex</small></h4>
+                            <p>Filter by DapID</p>
+                            <div class="input-group mb-3">
+                                <input type="text" id="dapID" class="custom-text-input form-control">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="selecteddapID">Ingress dapID</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_errors(form.dapid_text) }}
+                                {{ form_widget(form.dapid_text) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                        <div class="form-group">
+                            {{ form_widget(form.reindex) }}
+                            {{ form_widget(form.reindexByName) }}
+                            {{ form_widget(form.reindexByDapID) }}
+                            {{ form_widget(form.search) }}
+                            {{ form_widget(form.searchCommand) }}
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block additional_script %}
+    <script>
+        $( document ).ready(function() {
+
+            $(".lined").linedtextarea();
+
+            $('#search_text').on("change", function(){
+                var text = $(this).val();
+                $("#form_search_text").html(text);
+            });
+
+            $('#dapID').on("change", function(){
+                var dapid = $(this).val();
+
+                if (dapid != "") {
+                    $("#form_dapid_text").html(dapid);
+                } else {
+                    $("#form_dapid_text").html("");
+                }
+            });
+
+        });
+
+        function previewFile(file) {
+            var reader = new FileReader();
+            reader.onload = readSuccess;
+            function readSuccess(e) {
+                var field = $('#form_search_text');
+                $(field).html(e.target.result);
+            };
+            reader.readAsText(file);
+        }
+
+        function getSchema(identifier) {
+            var uri = "{{ path('dap_import_content_type_base') }}" + "/" + identifier;
+            var jqxhr = $.getJSON( uri, function(data) {
+                jsonData = data;
+            })
+                    .done(function( json ) {
+                        console.log( "Json success" );
+                        $("#form_schema_text").html(JSON.stringify(json, undefined, 4));
+                    })
+                    .fail(function( jqxhr, textStatus, error ) {
+                        var err = textStatus + ", " + error;
+                        console.log( "Request Failed: " + err );
+                    });
+        }
+    </script>
+{% endblock %}

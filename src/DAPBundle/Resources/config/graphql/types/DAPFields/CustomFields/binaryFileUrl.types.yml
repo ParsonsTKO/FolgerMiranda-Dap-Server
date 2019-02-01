@@ -1,0 +1,12 @@
+binaryFileUrl:
+    type: object
+    config:
+        fields:
+            oembed:
+                type: Boolean
+            url:
+                type: "String"
+            type:
+                type: "String"
+            remoteUrl:
+                type: "String"

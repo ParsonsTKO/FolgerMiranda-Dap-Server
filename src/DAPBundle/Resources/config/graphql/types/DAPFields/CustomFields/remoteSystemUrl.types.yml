@@ -1,0 +1,8 @@
+remoteSystemUrl:
+    type: object
+    config:
+        fields:
+            oembed:
+                type: Boolean
+            url:
+                type: "String"

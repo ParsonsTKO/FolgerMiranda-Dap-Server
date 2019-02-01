@@ -1,0 +1,9 @@
+form:
+    displayName: Display Name
+    apiKey: API Key
+    resetApiKey: Reset API Key
+
+profile:
+    show:
+        displayName: Display Name
+        apiKey: API Key

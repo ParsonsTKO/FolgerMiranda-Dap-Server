@@ -1,0 +1,50 @@
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+graphql:
+#    resource: "@OverblogGraphQLBundle/Controller/"
+     path: /graphql
+     defaults:
+         _controller: Overblog\GraphQLBundle\Controller\GraphController::endpointAction
+
+overblog_graphql_endpoint:
+    resource: "@OverblogGraphQLBundle/Resources/config/routing/graphql.yml"
+    #prefix:   graphql
+
+dap:
+    resource: "@DAPBundle/Resources/config/routing.yml"
+    prefix:   /dapadmin/
+
+dap_import:
+    resource: "@DAPImportBundle/Resources/config/routing.yml"
+    prefix: /dapadmin/
+
+iiif:
+    resource: '@IIIFBundle/Resources/config/routing.yaml'
+    prefix: /iiif/manifest/
+
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+
+dap_prime_iiif_caches:
+    path: /dapadmin/prime_iiif_caches
+    defaults: { _controller: DAPBundle:View:primeIiifCaches}
+
+#handle exposing our schema(s)
+dap_import_content_type_base:
+    path:     /schema
+    defaults: { _controller: DAPImportBundle:ContentType:show }
+
+dap_import_content_type_base_with_slash:
+    path:     /schema/
+    defaults: { _controller: DAPImportBundle:ContentType:show }
+
+dap_import_content_type:
+    path:     /schema/{identifier}
+    defaults: { _controller: DAPImportBundle:ContentType:get }
+
+dap_import_content_type_with_slash:
+    path:     /schema/{identifier}/
+    defaults: { _controller: DAPImportBundle:ContentType:get }
+

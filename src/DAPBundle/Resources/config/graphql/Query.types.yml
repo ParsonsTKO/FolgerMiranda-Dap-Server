@@ -1,0 +1,110 @@
+Query:
+    type: object
+    config:
+        description: "DAP GraphQL Queries and samples"
+        fields:
+            hello:
+                type: "String"
+                args:
+                    name:
+                      description: "Example name parameter"
+                      type: "String"
+                resolve: "@=resolver('hello', [args])"
+            currentTime:
+                type: "String"
+                args: []
+                resolve: "@=resolver('current_time', [args])"
+            records:
+                type: "[Record]"
+                args:
+                    dapID:
+                      description: "Resolves using the record Dapid."
+                      type: "String"
+                    searchText:
+                      description: "Query by keyword"
+                      type: "String"
+                resolve: "@=resolver('Record', [args])"
+            featuredResult:
+                type: "[FeaturedResult]"
+                args:
+                  searchText:
+                      description: "Your search text to be matched against our list of possible featured results"
+                      type: "String"
+                resolve: "@=resolver('FeaturedResult', [args])"
+            MyShelf:
+                type: "[MyShelf]"
+                args:
+                  myShelfFolder:
+                    type: "String"
+                    description: "Show only the results in this folder. Used for shared folders."
+                  myShelfRecord:
+                    type: "String"
+                    description: "Filter result to show only this record"
+                resolve: "@=resolver('MyShelf', [args,info])"
+            allFolders:
+                type: "[MyShelf]"
+                resolve: "@=resolver('MyShelf', [args,info])"
+            search:
+                type: "[Record]"
+                args:
+                    dapID:
+                      description: "Resolves using the record Dapid."
+                      type: "String"
+                    searchText:
+                      description: "Filter by by keyword"
+                      type: "String"
+                    language:
+                      description: "Filter by by Language"
+                      type: "String"
+                    format:
+                      description: "Filter by by Format"
+                      type: "String"
+                    mirandaGenre:
+                      description: "Filter by by mirandaGenre"
+                      type: "String"
+                    genre:
+                      description: "Filter by by genre"
+                      type: "String"
+                    dateCreated:
+                      description: "Filter by by dateCreated"
+                      type: "String"
+                    refine:
+                      description: "Filter by refine with facets as string"
+                      type: "String"
+                    refineto:
+                      description: "Filter by refineto with facets as string"
+                      type: "String"
+                    offset:
+                      description: "Filter by offset"
+                      type: "String"
+                    pagesize:
+                      description: "Filter by pagesize"
+                      type: "String"
+                    createdFrom:
+                      description: "Filter by createdFrom"
+                      type: "String"
+                    createdUntil:
+                      description: "Filter by createdUntil"
+                      type: "String"
+                    availableOnline:
+                      description: "Filter by availableOnline"
+                      type: "String"
+                    arrayFacets:
+                      type: "[[String]]"
+                    facets:
+                      description: "Filter by facets"
+                      type: "String"
+                resolve: "@=resolver('Search', [args])"
+            pagination:
+                type: "[Pagination]"
+                args:
+                    offset:
+                      type: "String"
+                resolve: "@=resolver('Pagination', [args])"
+            facets:
+                type: "[Facets]"
+                args: []
+                resolve: "@=resolver('Facets', [args])"
+            currentUser:
+                type: 'User'
+                resolve: "@=resolver('CurrentUser')"

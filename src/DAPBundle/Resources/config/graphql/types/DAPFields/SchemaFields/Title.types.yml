@@ -1,0 +1,16 @@
+Title:
+    type: object
+    config:
+        description: "In the initial version, we kept a single string for the title. Now, we're trying to capture more information about variations,
+                      including linking to an authority reference when available. As a result, we have sub-fields of title now:"
+        fields:
+            displayTitle:
+                type: "String"
+                description: "The common short version of the title. This is preferred for display."
+            extendedTitle:
+                type: "String"
+                description: "A longer title, perhaps a transcribed long title, where appropriate."
+            alternateTitles:
+                type: "[alternateTitles]"
+            uniformTitle:
+                type: uniformTitle
